@@ -255,6 +255,6 @@ export class PricingPlansComponent {
   }
 
   private redirigirAPago(url: string): void {
-    window.location.href = url;
+    window.open(url, '_blank');
   }
 }

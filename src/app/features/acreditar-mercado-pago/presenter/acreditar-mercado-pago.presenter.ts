@@ -105,7 +105,7 @@ export class AcreditarMercadoPagoPresenter {
     try {
       const paymentUrl = await this.mercadoPagoService.generarLinkPago(alumno.id, monto);
       if (paymentUrl) {
-        this.document.location.href = paymentUrl;
+        window.open(paymentUrl, '_blank');
       } else {
         throw new Error('No se recibió la URL de pago.');
       }
