@@ -46,7 +46,7 @@ export class AlumnoCardComponent implements OnInit {
   private readonly contextoService = inject(AlumnoContextoService);
   private readonly presupuestoService = inject(PresupuestoService);
   private readonly _cantidadPendientes = signal<number>(0);
-  
+
   private readonly currentUrl = toSignal(
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
@@ -100,7 +100,7 @@ export class AlumnoCardComponent implements OnInit {
             const referenceDate = new Date();
             const { start, end } = getPeriodRange(budget.periodo, referenceDate);
             const activeStatuses = ['APPROVED', 'PENDING', 'PENDIENTE', 'EN_PREPARACION', 'LISTO', 'ENTREGADO'];
-            
+
             const approvedPastPurchases = history.filter((m) => {
               if (!activeStatuses.includes(m.status)) return false;
               const purchaseDate = m.pickupDate ? new Date(m.pickupDate + 'T12:00:00') : new Date(m.date);
@@ -139,11 +139,6 @@ export class AlumnoCardComponent implements OnInit {
   toggleBotones(): void {
     this.mostrarTodosLosBotones.update(v => !v);
   }
-
-  /**
-   * Establece el alumno activo en el servicio de contexto y navega a la ruta.
-   * Esto permite URLs limpias (sin UUID) en todas las rutas de alumno.
-   */
   navegar(ruta: string): void {
     if (ruta === '/adelanto' && this.planBloqueado('AVANZADO')) {
       return;
@@ -256,6 +251,10 @@ export class AlumnoCardComponent implements OnInit {
     return this.perfilService.perfil()?.rol === 'PADRE';
   }
 
+  get esColaborador(): boolean {
+    return this.perfilService.perfil()?.esColaborador ?? false;
+  }
+
   get esPremium(): boolean {
     return !this.perfilService.esPlanGratuito();
   }
@@ -271,7 +270,6 @@ export class AlumnoCardComponent implements OnInit {
   isActive(ruta: string): boolean {
     const url = this.currentUrl();
     if (!url) return false;
-    // Check both route and context
     return this.contextoService.alumnoId() === this.alumno.id && url.includes(ruta);
   }
 

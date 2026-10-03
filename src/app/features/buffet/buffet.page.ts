@@ -10,6 +10,7 @@ import {
   ViewChild,
   ElementRef,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlumnoContextoService } from '../../core/services/alumno-contexto.service';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { AlumnosService } from '../../data-access/services/alumnos.service';
@@ -46,11 +47,11 @@ export interface MappedPromotion {
   esPromoReal: boolean;
   categoria: CategoriaProducto;
   clasificacionesSalud: ClasificacionSalud[];
-  /** Bloqueada explícitamente por el tutor (se oculta en vista alumno) */
+
   bloqueada?: boolean;
-  /** Bloqueada por restricción nutricional o alérgeno (se oculta en vista alumno) */
+
   bloqueadaPorRestriccion?: boolean;
-  /** Motivo de bloqueo derivado del primer producto afectado */
+
   motivoBloqueo?: string;
 }
 
@@ -70,6 +71,7 @@ export class BuffetPage implements OnInit {
   private readonly colegiosService = inject(ColegiosService);
   private readonly carritoService = inject(CarritoService);
   private readonly carritosFavoritosService = inject(CarritosFavoritosService);
+  private readonly router = inject(Router);
   protected readonly presenter = inject(BuffetPresenter);
 
   readonly nombreUsuario = this.usuarioService.nombreNavbar;
@@ -106,6 +108,10 @@ export class BuffetPage implements OnInit {
     this.mostrarModalFavorito = false;
     this.favoritoModalAlumnoId = '';
     this.favoritoModalItems = [];
+  }
+
+  protected irAMiCarrito(): void {
+    void this.router.navigateByUrl('/compra');
   }
   protected readonly diasCalendario = signal<DateCell[]>([]);
 
@@ -208,7 +214,6 @@ export class BuffetPage implements OnInit {
         ).values()
       );
 
-      // Derivar bloqueo desde los productos que componen la promo
       const productoBloqueadoPorTutor = products.find(p => p.bloqueado);
       const productoBloqueadoPorRestriccion = products.find(p => p.bloqueadoPorRestriccion);
       const bloqueada = !!productoBloqueadoPorTutor;
@@ -243,10 +248,10 @@ export class BuffetPage implements OnInit {
     const esAlumno = this.esVistaAlumno();
 
     const filtered = promos.filter(p => {
-      // En la vista del alumno, ocultar solo las bloqueadas por el tutor
+
       if (esAlumno) {
         if (p.bloqueada) return false;
-        // Las restringidas se muestran pero con botón deshabilitado (como los productos)
+
       }
       if (texto && !p.nombre.toLowerCase().includes(texto) && !p.descripcion.toLowerCase().includes(texto)) {
         return false;
@@ -335,7 +340,7 @@ export class BuffetPage implements OnInit {
     const alumno = this.presenter.alumno();
     if (!alumno) return false;
 
-    // Construir un Producto temporal para la validación del CarritoService
+
     const pTemp: Producto = {
       id: promo.id,
       nombre: promo.nombre,
@@ -385,8 +390,6 @@ export class BuffetPage implements OnInit {
     const alumno = this.presenter.alumno();
     if (!alumno) return;
 
-    // Si es una promocion real de la base de datos o fallback, creamos un producto temporal
-    // que se agrega al carrito usando la interfaz Producto, con el ID de la promocion.
     const pTemp: Producto = {
       id: promo.id,
       nombre: promo.nombre,
