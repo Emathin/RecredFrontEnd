@@ -698,7 +698,7 @@ export class PerfilUsuarioPage implements OnInit {
     this.cargandoColaboradores.set(true);
     try {
       const colabs = await this.colaboradorService.listarColaboradores();
-      this.colaboradores.set(colabs);
+      this.colaboradores.set(colabs.filter(c => c.activa !== false));
     } catch (err) {
       console.error('Error al cargar colaboradores:', err);
     } finally {

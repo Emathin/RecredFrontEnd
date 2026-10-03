@@ -6,8 +6,8 @@ import { environment } from '../../../environments/environment';
 export interface ColaboradorDTO {
   readonly id: string;
   readonly email: string;
-  readonly firstName?: string | null;
-  readonly lastName?: string | null;
+  readonly nombre?: string | null;
+  readonly apellido?: string | null;
   readonly urlFotoPerfil?: string | null;
   readonly activa?: boolean;
 }

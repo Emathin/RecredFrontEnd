@@ -48,7 +48,7 @@
 
       <article class="perfil-usuario__panel">
         <h2 class="perfil-usuario__panel-titulo">Perfil completo</h2>
-        <form [formGroup]="form" (submit)="$event.preventDefault(); submit()" class="perfil-usuario__form">
+        <div style="display: flex; justify-content: center; width: 100%;"><form [formGroup]="form" (submit)="$event.preventDefault(); submit()" class="perfil-usuario__form" style="max-width: 100%; width: 100%;">
           <fieldset class="perfil-usuario__fieldset" [disabled]="cargando()">
             
             <label class="perfil-usuario__campo">
@@ -71,9 +71,14 @@
               <input type="tel" formControlName="telefono" placeholder="Tu tel&eacute;fono" />
             </label>
 
-            <label class="perfil-usuario__campo">
+            <label class="perfil-usuario__campo" style="display: flex; flex-direction: column; gap: 8px;">
               <span>Contrase&ntilde;a</span>
-              <input type="password" formControlName="password" placeholder="Tu contrase&ntilde;a" />
+              <div class="pw-modal__input-wrapper" style="width: 100%;">
+                <input [type]="mostrarPassword() ? 'text' : 'password'" formControlName="password" class="pw-modal__input" placeholder="Crea tu contrase&ntilde;a" style="background: transparent;" />
+                <button type="button" class="pw-modal__ojo" (click)="mostrarPassword.set(!mostrarPassword())" [attr.aria-label]="mostrarPassword() ? 'Ocultar' : 'Mostrar'">
+                  <i [class]="mostrarPassword() ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'" aria-hidden="true" style="color: var(--color-texto-claro);"></i>
+                </button>
+              </div>
             </label>
 
             <div class="perfil-usuario__acciones">
@@ -91,6 +96,7 @@
 
           </fieldset>
         </form>
+        </div>
       </article>
     </section>
 

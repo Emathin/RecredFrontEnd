@@ -206,13 +206,13 @@
                     <img [src]="colab.urlFotoPerfil" alt="Foto de perfil" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;" />
                   } @else {
                     <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-primario, #4a90e2); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">
-                      {{ (colab.firstName?.[0] || '') + (colab.lastName?.[0] || '') || 'U' }}
+                      {{ (colab.nombre?.[0] || '') + (colab.apellido?.[0] || '') || 'U' }}
                     </div>
                   }
                   <div>
                     <strong style="display: block; font-size: 0.95rem;">
-                      @if (colab.firstName) {
-                        {{ colab.firstName }} {{ colab.lastName }}
+                      @if (colab.nombre) {
+                        {{ colab.nombre }} {{ colab.apellido }}
                       } @else {
                         Usuario invitado
                       }

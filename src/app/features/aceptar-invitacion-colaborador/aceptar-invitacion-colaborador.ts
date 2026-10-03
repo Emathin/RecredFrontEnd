@@ -22,6 +22,7 @@ export class AceptarInvitacionColaborador implements OnInit {
   token = '';
   cargando = signal(false);
   fotoPreview = signal<string | null>(null);
+  mostrarPassword = signal(false);
 
   form = new FormGroup({
     nombre: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
@@ -56,7 +57,7 @@ export class AceptarInvitacionColaborador implements OnInit {
         token: this.token,
         ...this.form.value
       });
-      this.toastService.mostrar('�Cuenta creada exitosamente! Ya pod�s iniciar sesi�n.', 'success', 8000);
+      this.toastService.mostrar('�Cuenta creada exitosamente! Ya pod\u00E9s iniciar sesi\u00F3n.', 'success', 8000);
       this.router.navigate(['/seleccion-tipo-cuenta']);
     } catch (err: any) {
       const msg = err?.error?.message || err.message || 'Error al procesar la invitaci�n';
