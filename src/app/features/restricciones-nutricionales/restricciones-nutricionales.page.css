@@ -20,7 +20,7 @@
 
 .restricciones__container {
   width: 100%;
-  max-width: 680px;
+  max-width: 1250px;
   padding: 0 24px;
   box-sizing: border-box;
   display: flex;
@@ -33,8 +33,8 @@
 
 
 .restricciones__header {
-  margin-bottom: 24px;
-  padding-bottom: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 0px;
 }
 
 .restricciones__titulo {
@@ -55,12 +55,24 @@
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   width: 100%;
 }
 
-/* Con 10 elementos el grid de 2 columnas queda siempre pareado */
+/* Centrar el elemento sobrante en 3 columnas (cuando queda 1 solo en la fila) */
+@media (min-width: 901px) {
+  .restriccion-item:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+}
+
+/* En pantallas medianas volvemos a 2 columnas para no apretarlos */
+@media (max-width: 900px) and (min-width: 641px) {
+  .restricciones__lista {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 .restriccion-item {
   display: grid;
@@ -219,7 +231,7 @@
 
 /* Guardar Cambios Button */
 .restricciones__guardar {
-  width: 100%;
+  width: 60%;
   padding: 16px;
   background-color: var(--color-dorado); /* Yellow button */
   color: #1a3b5c;
@@ -232,7 +244,7 @@
   box-shadow: 0 8px 24px rgba(242, 183, 5, 0.22);
   cursor: pointer;
   transition: all 0.15s ease, transform 0.1s ease;
-  margin-top: 8px;
+  margin-top: 32px;
 }
 
 .restricciones__guardar:hover:not(:disabled) {
@@ -274,7 +286,10 @@
     gap: 12px;
   }
   
-  /* Sin regla especial para last-child: 10 items en 2 columnas quedan parejos */
+  /* Sin regla especial para last-child: en mobile es 1 columna sola */
+  .restriccion-item:last-child {
+    grid-column: 1;
+  }
   
   .restriccion-item {
     padding: 14px 16px;

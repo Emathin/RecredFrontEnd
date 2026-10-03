@@ -1,7 +1,7 @@
 .alumno-card {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   padding: 16px;
   background-color: var(--color-superficie);
   border: 1px solid var(--color-borde);
@@ -31,8 +31,8 @@
 }
 
 .alumno-card__avatar {
-  width: 64px;
-  height: 64px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   background-color: var(--color-pizarra);
   color: #ffffff;

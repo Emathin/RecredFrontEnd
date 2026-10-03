@@ -34,12 +34,11 @@
     </div>
 
     <div class="tutor-header__info">
-      <p class="tutor-header__saludo">
-        ¡Hola,
-      </p>
-      <h1 class="tutor-header__nombre">{{ nombreCompleto }}!</h1>
+      <div class="tutor-header__greeting">
+        <span class="tutor-header__saludo">¡Hola,</span>
+        <h1 class="tutor-header__nombre">{{ nombreCompleto }}!</h1>
+      </div>
       <p class="tutor-header__subtitulo">
-        <span class="tutor-header__hashtag">#</span>
         <span>{{ resumenHijos }}</span>
         <span style="margin: 0 6px; color: var(--color-texto-claro);" aria-hidden="true">·</span>
         <a class="tutor-header__link-agregar" routerLink="/crear-hijo">Agregar hijo</a>

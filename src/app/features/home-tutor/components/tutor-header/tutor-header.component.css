@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 24px;
-  padding: 16px 24px;
+  padding: 12px 20px;
   background-color: var(--color-superficie);
   border: 1px solid var(--color-borde);
   border-radius: 24px;
@@ -116,6 +116,13 @@
   gap: 4px;
 }
 
+.tutor-header__greeting {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .tutor-header__saludo {
   font-family: var(--font-body);
   font-size: 16px;
@@ -146,10 +153,7 @@
   margin: 4px 0 0 0;
 }
 
-.tutor-header__hashtag {
-  color: var(--color-pizarra);
-  font-weight: 700;
-}
+
 
 .tutor-header__saldo-card {
   display: flex;
@@ -216,6 +220,10 @@
   .tutor-header__info {
     align-items: flex-end;
     text-align: right;
+  }
+
+  .tutor-header__greeting {
+    justify-content: flex-end;
   }
 
   .tutor-header__saldo-card {
