@@ -173,17 +173,36 @@
           Invitá a otros familiares para que puedan gestionar y ver la información de tus hijos.
         </p>
 
-        <form class="perfil-usuario__form" style="display: flex; gap: 8px; margin-bottom: 1.5rem;" (submit)="$event.preventDefault(); invitarColaborador()">
-          <div style="flex: 1;">
-            <input type="email" [formControl]="emailColaboradorForm" placeholder="Email del colaborador"
-              class="perfil-usuario__input" style="width: 100%; border: 1px solid var(--color-border, #ccc); border-radius: 8px; padding: 10px; background: inherit; color: inherit;"
-              [class.perfil-usuario__input--error]="emailColaboradorForm.invalid && (emailColaboradorForm.dirty || emailColaboradorForm.touched)" />
-            @if (emailColaboradorForm.invalid && (emailColaboradorForm.dirty || emailColaboradorForm.touched)) {
-              <small style="color: #ef4444; font-size: 0.8rem; margin-top: 4px; display: block;">Ingresá un email válido.</small>
-            }
+        <form class="perfil-usuario__form" style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;" (submit)="$event.preventDefault(); invitarColaborador()">
+          <div style="display: flex; gap: 8px; align-items: flex-start;">
+            <div style="flex: 1;">
+              <input type="email" [formControl]="emailColaboradorForm" placeholder="Email del colaborador"
+                class="perfil-usuario__input" style="width: 100%; border: 1px solid var(--color-border, #ccc); border-radius: 8px; padding: 10px; background: inherit; color: inherit;"
+                [class.perfil-usuario__input--error]="emailColaboradorForm.invalid && (emailColaboradorForm.dirty || emailColaboradorForm.touched)" />
+              @if (emailColaboradorForm.invalid && (emailColaboradorForm.dirty || emailColaboradorForm.touched)) {
+                <small style="color: #ef4444; font-size: 0.8rem; margin-top: 4px; display: block;">Ingresá un email válido.</small>
+              }
+            </div>
           </div>
+
+          @if (hijos().length > 0) {
+            <div style="padding: 12px; border: 1px solid var(--color-border, #eee); border-radius: 8px; background: var(--color-fondo-panel, transparent);">
+              <p style="font-size: 0.9rem; font-weight: 500; margin-bottom: 8px;">Seleccionar hijos a los que darle acceso:</p>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                @for (hijo of hijos(); track hijo.id) {
+                  <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
+                    <input type="checkbox" 
+                           [checked]="selectedHijos().includes(hijo.id)"
+                           (change)="toggleHijo(hijo.id)" />
+                    {{ hijo.nombre }} {{ hijo.apellido }}
+                  </label>
+                }
+              </div>
+            </div>
+          }
+
           <button type="submit" class="perfil-usuario__boton perfil-usuario__boton--primario"
-            [disabled]="invitandoColaborador() || emailColaboradorForm.invalid" style="white-space: nowrap; height: fit-content; padding: 10px 16px;">
+            [disabled]="invitandoColaborador() || emailColaboradorForm.invalid" style="align-self: flex-start; padding: 10px 24px;">
             @if (invitandoColaborador()) {
               Enviando...
             } @else {

@@ -14,6 +14,17 @@ export interface ColaboradorDTO {
 
 export interface InvitarColaboradorRequest {
   readonly email: string;
+  readonly assignedStudentIds: string[];
+}
+
+export interface AceptarInvitacionColaboradorRequest {
+  token: string;
+  nombre: string;
+  apellido: string;
+  username: string;
+  dni: string;
+  telefono: string;
+  password?: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -25,11 +36,11 @@ export class ColaboradorService {
     return firstValueFrom(this.http.get<ColaboradorDTO[]>(this.baseUrl));
   }
 
-  invitarColaborador(email: string): Promise<void> {
-    return firstValueFrom(this.http.post<void>(`${this.baseUrl}/invitar`, { email }));
+  invitarColaborador(request: InvitarColaboradorRequest): Promise<void> {
+    return firstValueFrom(this.http.post<void>(`${this.baseUrl}/invitar`, request));
   }
 
-  aceptarInvitacion(request: any): Promise<void> {
+  aceptarInvitacion(request: AceptarInvitacionColaboradorRequest): Promise<void> {
     return firstValueFrom(this.http.post<void>(this.baseUrl + '/aceptar', request));
   }
 

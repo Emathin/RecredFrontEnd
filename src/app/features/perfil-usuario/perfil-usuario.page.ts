@@ -17,6 +17,7 @@ import { ToastService } from '../../shared/services/toast.service';
 import { CropModalComponent } from './components/crop-modal/crop-modal.component';
 import { AuthService } from '../../core/auth/services/auth.service';
 import { ColaboradorService, ColaboradorDTO } from '../../data-access/services/colaborador.service';
+import { AlumnosService } from '../../data-access/services/alumnos.service';
 
 type PerfilUsuarioForm = FormGroup<{
   firstName: FormControl<string>;
@@ -41,6 +42,7 @@ export class PerfilUsuarioPage implements OnInit {
   private readonly router = inject(Router);
   private readonly authService = inject(AuthService);
   private readonly colaboradorService = inject(ColaboradorService);
+  private readonly alumnosService = inject(AlumnosService);
 
   protected readonly usuario = signal<UsuarioLogueado | null>(null);
   protected readonly passwordForm = new FormGroup({
@@ -92,9 +94,20 @@ export class PerfilUsuarioPage implements OnInit {
     validators: [Validators.required, Validators.email],
   });
   protected readonly invitandoColaborador = signal(false);
+  protected readonly selectedHijos = signal<string[]>([]);
+  protected readonly hijos = this.alumnosService.alumnos;
+  
+  protected toggleHijo(id: string): void {
+    const current = this.selectedHijos();
+    if (current.includes(id)) {
+      this.selectedHijos.set(current.filter(x => x !== id));
+    } else {
+      this.selectedHijos.set([...current, id]);
+    }
+  }
   
   protected readonly esColaborador = computed(() => {
-    return this.perfilService.perfil()?.esColaborador === true;
+    return this.usuario()?.esColaborador === true || this.perfil()?.esColaborador === true || this.perfilService.perfil()?.esColaborador === true;
   });
 
   protected readonly esKiosquero = computed(() => {
@@ -292,6 +305,7 @@ export class PerfilUsuarioPage implements OnInit {
 
       if (role === 'PADRE' && !this.esColaborador()) {
         await this.cargarColaboradores();
+        await this.alumnosService.asegurarCargados();
       }
     } catch (err) {
       console.error('Error cargando el perfil del usuario:', err);
@@ -716,9 +730,10 @@ export class PerfilUsuarioPage implements OnInit {
     const email = this.emailColaboradorForm.value.trim();
     
     try {
-      await this.colaboradorService.invitarColaborador(email);
+      await this.colaboradorService.invitarColaborador({ email, assignedStudentIds: this.selectedHijos() });
       this.toastService.mostrar(`Invitaci\u00F3n enviada a ${email}. IMPORTANTE: El usuario no aparecer\u00E1 en la lista hasta que acepte.`, 'success', 10000);
       this.emailColaboradorForm.reset();
+      this.selectedHijos.set([]);
       await this.cargarColaboradores();
     } catch (err: any) {
       console.error('Error al invitar colaborador:', err);

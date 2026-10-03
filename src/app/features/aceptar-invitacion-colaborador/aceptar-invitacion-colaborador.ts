@@ -27,6 +27,7 @@ export class AceptarInvitacionColaborador implements OnInit {
   form = new FormGroup({
     nombre: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     apellido: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
+    username: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.pattern(/^[^\\s]+$/)] }),
     dni: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     telefono: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     password: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.minLength(6)] }),
@@ -50,17 +51,17 @@ export class AceptarInvitacionColaborador implements OnInit {
       this.form.markAllAsTouched();
       return;
     }
-    
+
     this.cargando.set(true);
     try {
       await this.colaboradorService.aceptarInvitacion({
         token: this.token,
-        ...this.form.value
+        ...this.form.getRawValue()
       });
-      this.toastService.mostrar('�Cuenta creada exitosamente! Ya pod\u00E9s iniciar sesi\u00F3n.', 'success', 8000);
+      this.toastService.mostrar('Cuenta creada exitosamente! Ya pod&eacute;s iniciar sesi&oacute;n.', 'success', 8000);
       this.router.navigate(['/seleccion-tipo-cuenta']);
     } catch (err: any) {
-      const msg = err?.error?.message || err.message || 'Error al procesar la invitaci�n';
+      const msg = err?.error?.message || err.message || 'Error al procesar la invitaci&oacute;n';
       this.toastService.mostrar(msg, 'error');
     } finally {
       this.cargando.set(false);
