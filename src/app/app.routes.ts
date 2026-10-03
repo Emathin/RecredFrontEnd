@@ -18,6 +18,13 @@ export const routes: Routes = [
       import('./features/registro-colegio/registro-colegio.page').then((m) => m.RegistroColegioPage),
   },
   {
+    path: 'colaborador/aceptar-invitacion/:token',
+    loadComponent: () =>
+      import('./features/aceptar-invitacion-colaborador/aceptar-invitacion-colaborador').then(
+        (m) => m.AceptarInvitacionColaborador,
+      ),
+  },
+  {
     path: 'invitaciones/tutor',
     loadComponent: () =>
       import('./features/aceptar-invitacion-tutor/aceptar-invitacion-tutor.page').then(

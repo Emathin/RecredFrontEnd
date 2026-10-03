@@ -717,7 +717,7 @@ export class PerfilUsuarioPage implements OnInit {
     
     try {
       await this.colaboradorService.invitarColaborador(email);
-      this.toastService.mostrar(`Invitación enviada a ${email}`, 'success');
+      this.toastService.mostrar(`Invitaci\u00F3n enviada a ${email}. IMPORTANTE: El usuario no aparecer\u00E1 en la lista hasta que acepte.`, 'success', 10000);
       this.emailColaboradorForm.reset();
       await this.cargarColaboradores();
     } catch (err: any) {

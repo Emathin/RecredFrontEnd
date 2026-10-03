@@ -1,0 +1,98 @@
+<main class="perfil-usuario">
+  <div class="perfil-usuario__container">
+    
+    <header class="perfil-usuario__header">
+      <div class="perfil-usuario__avatar-wrapper" aria-label="Foto de perfil">
+        @if (fotoPreview()) {
+          <img class="perfil-usuario__avatar perfil-usuario__avatar--foto" [src]="fotoPreview()!" alt="Tu foto" />
+        } @else {
+          <div class="perfil-usuario__avatar" aria-hidden="true" style="font-size: 1.5rem;">
+            <i class="fa-solid fa-camera"></i>
+          </div>
+        }
+        <button type="button" class="perfil-usuario__avatar-editar" (click)="fotoUploadInput.click()">
+          <i class="fa-solid fa-pen" aria-hidden="true"></i>
+        </button>
+        <input #fotoUploadInput type="file" accept="image/*" class="perfil-usuario__input-foto"
+          aria-hidden="true" tabindex="-1" (change)="onFotoSeleccionada($event)" />
+      </div>
+      
+      <div class="perfil-usuario__heading">
+        <p class="perfil-usuario__eyebrow">CUENTA RECRED</p>
+        <h1 class="perfil-usuario__titulo">Registro de Colaborador</h1>
+        <p class="perfil-usuario__subtitulo">
+          Complet&aacute; tus datos para aceptar la invitaci&oacute;n y empezar a colaborar.
+        </p>
+      </div>
+    </header>
+
+    <section class="perfil-usuario__grid" aria-label="Datos del usuario">
+      <article class="perfil-usuario__panel">
+        <h2 class="perfil-usuario__panel-titulo">Invitaci&oacute;n</h2>
+        
+        <dl class="perfil-usuario__datos">
+          <div>
+            <dt>Rol asignado</dt>
+            <dd>Tutor Colaborador</dd>
+          </div>
+          <div>
+            <dt>Estado</dt>
+            <dd>Pendiente de registro</dd>
+          </div>
+        </dl>
+
+        <div style="margin-top: 1.5rem; color: var(--color-texto-claro); font-size: 0.9rem; line-height: 1.5;">
+          Al registrarte, podr&aacute;s gestionar y ver la informaci&oacute;n de los hijos a los que te hayan dado acceso.
+        </div>
+      </article>
+
+      <article class="perfil-usuario__panel">
+        <h2 class="perfil-usuario__panel-titulo">Perfil completo</h2>
+        <form [formGroup]="form" (submit)="$event.preventDefault(); submit()" class="perfil-usuario__form">
+          <fieldset class="perfil-usuario__fieldset" [disabled]="cargando()">
+            
+            <label class="perfil-usuario__campo">
+              <span>Nombre</span>
+              <input type="text" formControlName="nombre" placeholder="Tu nombre" />
+            </label>
+
+            <label class="perfil-usuario__campo">
+              <span>Apellido</span>
+              <input type="text" formControlName="apellido" placeholder="Tu apellido" />
+            </label>
+
+            <label class="perfil-usuario__campo">
+              <span>DNI</span>
+              <input type="text" formControlName="dni" placeholder="Tu DNI" />
+            </label>
+
+            <label class="perfil-usuario__campo">
+              <span>Tel&eacute;fono</span>
+              <input type="tel" formControlName="telefono" placeholder="Tu tel&eacute;fono" />
+            </label>
+
+            <label class="perfil-usuario__campo">
+              <span>Contrase&ntilde;a</span>
+              <input type="password" formControlName="password" placeholder="Tu contrase&ntilde;a" />
+            </label>
+
+            <div class="perfil-usuario__acciones">
+              <button type="button" class="perfil-usuario__boton perfil-usuario__boton--secundario" (click)="form.reset()" [disabled]="cargando()">
+                Descartar
+              </button>
+              <button type="submit" class="perfil-usuario__boton perfil-usuario__boton--primario" [disabled]="cargando() || form.invalid">
+                @if (cargando()) {
+                  Guardando...
+                } @else {
+                  Guardar cambios
+                }
+              </button>
+            </div>
+
+          </fieldset>
+        </form>
+      </article>
+    </section>
+
+  </div>
+</main>

@@ -29,6 +29,10 @@ export class ColaboradorService {
     return firstValueFrom(this.http.post<void>(`${this.baseUrl}/invitar`, { email }));
   }
 
+  aceptarInvitacion(request: any): Promise<void> {
+    return firstValueFrom(this.http.post<void>(this.baseUrl + '/aceptar', request));
+  }
+
   eliminarColaborador(colaboradorId: string): Promise<void> {
     return firstValueFrom(this.http.delete<void>(`${this.baseUrl}/${colaboradorId}`));
   }
