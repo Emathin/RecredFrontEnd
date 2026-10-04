@@ -8,6 +8,7 @@ export interface UsuarioLogueado {
   readonly role: RolUsuario;
   readonly colegioId?: string | null;
   readonly schoolId?: string | null;
+  readonly esColaborador?: boolean;
 }
 
 export interface PerfilUsuario extends UsuarioLogueado {

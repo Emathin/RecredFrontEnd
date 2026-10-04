@@ -13,8 +13,10 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     req.method === 'GET' && /\/invitaciones\/tutor\/[^/]+$/.test(req.url);
   const esPrepararCuentaTutor =
     req.method === 'POST' && /\/invitaciones\/tutor\/[^/]+\/preparar-cuenta$/.test(req.url);
+  const esAceptarInvitacionColaborador =
+    req.method === 'POST' && req.url.endsWith('/tutores/colaboradores/aceptar');
 
-  if (!esApiPropia || esRegistroColegioPublico || esValidarInvitacionTutor || esPrepararCuentaTutor) {
+  if (!esApiPropia || esRegistroColegioPublico || esValidarInvitacionTutor || esPrepararCuentaTutor || esAceptarInvitacionColaborador) {
     return next(req);
   }
 
