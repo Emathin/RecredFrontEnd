@@ -1,0 +1,101 @@
+<main class="registro-container">
+  <div class="registro-card">
+    <header class="registro-header">
+      <img src="/recred.png" alt="Recred Logo" class="logo" />
+      <h1>Completá tu registro</h1>
+      <p>Has sido invitado para ser colaborador en Recred.</p>
+    </header>
+
+    @if (errorGenerico() && !token()) {
+      <div class="alerta alerta--error">
+        <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+        <p>{{ errorGenerico() }}</p>
+      </div>
+      <div class="registro-acciones">
+        <button type="button" class="btn btn--primario" (click)="null" routerLink="/">Volver al inicio</button>
+      </div>
+    } @else if (exito()) {
+      <div class="alerta alerta--exito">
+        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+        <p>¡Cuenta creada con éxito! Redirigiendo...</p>
+      </div>
+    } @else {
+      @if (errorGenerico()) {
+        <div class="alerta alerta--error">
+          <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+          <p>{{ errorGenerico() }}</p>
+        </div>
+      }
+
+      <form class="registro-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" formControlName="nombre" placeholder="Tu nombre" 
+                   [class.input-error]="registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched" />
+            @if (registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched) {
+              <small class="error-msg">El nombre es obligatorio.</small>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input id="apellido" type="text" formControlName="apellido" placeholder="Tu apellido" 
+                   [class.input-error]="registerForm.get('apellido')?.invalid && registerForm.get('apellido')?.touched" />
+            @if (registerForm.get('apellido')?.invalid && registerForm.get('apellido')?.touched) {
+              <small class="error-msg">El apellido es obligatorio.</small>
+            }
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="dni">DNI / Documento</label>
+          <input id="dni" type="text" formControlName="dni" placeholder="Ej. 40123456" 
+                 [class.input-error]="registerForm.get('dni')?.invalid && registerForm.get('dni')?.touched" />
+          @if (registerForm.get('dni')?.hasError('required') && registerForm.get('dni')?.touched) {
+            <small class="error-msg">El DNI es obligatorio.</small>
+          }
+          @if (registerForm.get('dni')?.hasError('pattern') && registerForm.get('dni')?.touched) {
+            <small class="error-msg">Ingresa un DNI válido (7 u 8 números).</small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input id="telefono" type="tel" formControlName="telefono" placeholder="Ej. 1122334455" 
+                 [class.input-error]="registerForm.get('telefono')?.invalid && registerForm.get('telefono')?.touched" />
+          @if (registerForm.get('telefono')?.invalid && registerForm.get('telefono')?.touched) {
+            <small class="error-msg">El teléfono es obligatorio.</small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <div class="input-password-wrapper" [class.input-error]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+            <input id="password" [type]="mostrarPassword() ? 'text' : 'password'" formControlName="password" placeholder="Mínimo 8 caracteres" />
+            <button type="button" class="btn-toggle-pwd" (click)="togglePasswordVisibility()" aria-label="Mostrar/ocultar contraseña">
+              <i [class]="mostrarPassword() ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'" aria-hidden="true"></i>
+            </button>
+          </div>
+          @if (registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched) {
+            <small class="error-msg">La contraseña es obligatoria.</small>
+          }
+          @if (registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched) {
+            <small class="error-msg">Debe tener al menos 8 caracteres.</small>
+          }
+        </div>
+
+        <div class="registro-acciones">
+          <button type="submit" class="btn btn--primario" [disabled]="registerForm.invalid || enviando()">
+            @if (enviando()) {
+              <span class="spinner" aria-hidden="true"></span>
+              Procesando...
+            } @else {
+              Completar Registro
+            }
+          </button>
+        </div>
+      </form>
+    }
+  </div>
+</main>

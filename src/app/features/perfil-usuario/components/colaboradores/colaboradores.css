@@ -1,0 +1,167 @@
+:host {
+  grid-column: 1 / -1;
+}
+
+.colaboradores-panel {
+  margin-top: 1.5rem;
+}
+
+.colaboradores-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.colaboradores-header .perfil-usuario__boton {
+  flex: none;
+}
+
+@media (max-width: 520px) {
+  .colaboradores-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .colaboradores-header .perfil-usuario__boton {
+    width: 100%;
+  }
+}
+
+.colaboradores-estado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--color-texto-secundario, #666);
+  gap: 1rem;
+}
+
+.colaboradores-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  color: var(--color-texto-secundario, #666);
+  text-align: center;
+  background: var(--color-fondo-secundario, #f5f5f5);
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.colaboradores-empty i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-texto-secundario, #666);
+  opacity: 0.5;
+}
+
+.colaboradores-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.colaborador-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--color-borde, #e0e0e0);
+  border-radius: 8px;
+  background: var(--color-blanco, #ffffff);
+}
+
+.colaborador-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.colaborador-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-primario, #007bff);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.colaborador-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.colaborador-details strong {
+  font-size: 1rem;
+  color: var(--color-texto, #333);
+}
+
+.colaborador-details span {
+  font-size: 0.875rem;
+  color: var(--color-texto-secundario, #666);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.badge--pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.btn-eliminar {
+  background: none;
+  border: none;
+  color: var(--color-peligro, #dc3545);
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn-eliminar:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.checkboxes-container {
+  margin-top: 1rem;
+}
+
+.alumnos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  background: var(--color-fondo-secundario, #f9f9f9);
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-borde, #e0e0e0);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}

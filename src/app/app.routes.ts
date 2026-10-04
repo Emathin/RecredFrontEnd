@@ -25,6 +25,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'colaborador/aceptar-invitacion/:token',
+    loadComponent: () =>
+      import('./features/aceptar-invitacion-colaborador/aceptar-invitacion-colaborador.page').then(
+        (m) => m.AceptarInvitacionColaboradorPage,
+      ),
+  },
+  {
     path: 'recred-admin',
     canActivate: [authChildGuard, rolGuard],
     data: { roles: ['ADMIN'] },
@@ -143,6 +150,12 @@ export const routes: Routes = [
                   import('./features/acreditar-mercado-pago/acreditar-mercado-pago.page').then(
                     (m) => m.AcreditarMercadoPagoPage,
                   ),
+              },
+              {
+                path: 'programar-recarga',
+                canActivate: [alumnoContextoGuard],
+                loadComponent: () =>
+                  import('./features/programar-recarga/programar-recarga.component').then((m) => m.ProgramarRecargaComponent)
               },
               {
                 path: 'transferir-saldo',

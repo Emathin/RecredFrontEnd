@@ -16,6 +16,7 @@ import { NavbarComponent } from '../../shared/components/navbar/navbar.component
 import { ToastService } from '../../shared/services/toast.service';
 import { CropModalComponent } from './components/crop-modal/crop-modal.component';
 import { AuthService } from '../../core/auth/services/auth.service';
+import { Colaboradores } from './components/colaboradores/colaboradores';
 
 type PerfilUsuarioForm = FormGroup<{
   firstName: FormControl<string>;
@@ -28,7 +29,7 @@ type PerfilUsuarioForm = FormGroup<{
   selector: 'app-perfil-usuario-page',
   templateUrl: './perfil-usuario.page.html',
   styleUrl: './perfil-usuario.page.css',
-  imports: [NavbarComponent, ReactiveFormsModule, CropModalComponent],
+  imports: [NavbarComponent, ReactiveFormsModule, CropModalComponent, Colaboradores],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PerfilUsuarioPage implements OnInit {

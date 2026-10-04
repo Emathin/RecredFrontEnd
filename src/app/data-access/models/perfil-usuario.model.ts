@@ -27,6 +27,7 @@ export interface PerfilUsuario extends UsuarioLogueado {
     readonly monto?: number | null;
     readonly moneda?: string | null;
   } | null;
+  readonly esColaborador?: boolean;
 }
 
 export interface ActualizarPerfilUsuarioRequest {
@@ -35,3 +36,4 @@ export interface ActualizarPerfilUsuarioRequest {
   readonly phone?: string;
   readonly documentNumber?: string;
 }
+

@@ -175,6 +175,10 @@
           </button>
         </div>
       </form>
+
+      @if (!perfil()?.esColaborador) {
+        <app-colaboradores />
+      }
     </section>
 
     @if (esKiosquero()) {

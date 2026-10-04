@@ -1,0 +1,107 @@
+<article class="perfil-usuario__panel colaboradores-panel">
+  <div class="colaboradores-header">
+    <h2 class="perfil-usuario__panel-titulo">Colaboradores</h2>
+    <button type="button" class="perfil-usuario__boton perfil-usuario__boton--primario" (click)="abrirModalInvitacion()">
+      <i class="fa-solid fa-user-plus" aria-hidden="true"></i> Invitar
+    </button>
+  </div>
+
+  <p class="perfil-usuario__subtitulo">
+    Los colaboradores pueden acceder a las cuentas de los alumnos que les asignes, pero no podrán ver ni modificar tu perfil, ni invitar a otros colaboradores.
+  </p>
+
+  @if (cargando()) {
+    <div class="colaboradores-estado" aria-live="polite">
+      <span class="perfil-usuario__loader" aria-hidden="true"></span>
+      <p>Cargando colaboradores...</p>
+    </div>
+  } @else if (colaboradores().length === 0) {
+    <div class="colaboradores-empty">
+      <i class="fa-solid fa-users-slash" aria-hidden="true"></i>
+      <p>No tienes colaboradores asignados.</p>
+    </div>
+  } @else {
+    <div class="colaboradores-lista">
+      @for (colaborador of colaboradores(); track colaborador.id) {
+        <div class="colaborador-card">
+          <div class="colaborador-info">
+            <div class="colaborador-avatar">
+              {{ colaborador.nombre.charAt(0) | uppercase }}{{ colaborador.apellido.charAt(0) | uppercase }}
+            </div>
+            <div class="colaborador-details">
+              <strong>{{ colaborador.nombre }} {{ colaborador.apellido }}</strong>
+              <span>{{ colaborador.email }}</span>
+              @if (!colaborador.activa) {
+                <span class="badge badge--pending">Invitación pendiente</span>
+              }
+            </div>
+          </div>
+          <button type="button" class="btn-eliminar" (click)="eliminarColaborador(colaborador.id)" aria-label="Eliminar colaborador" title="Eliminar">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
+      }
+    </div>
+  }
+</article>
+
+@if (mostrarModal()) {
+  <div class="pw-modal__backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-invitacion-titulo"
+    (click)="cerrarModalInvitacion()" (keydown.escape)="cerrarModalInvitacion()">
+    <div class="pw-modal__panel" role="document" (click)="$event.stopPropagation()" (keydown)="$event.stopPropagation()">
+      <div class="pw-modal__header">
+        <div class="pw-modal__icono-wrapper" aria-hidden="true">
+          <i class="fa-solid fa-envelope-open-text"></i>
+        </div>
+        <div>
+          <h2 id="modal-invitacion-titulo" class="pw-modal__titulo">Invitar Colaborador</h2>
+          <p class="pw-modal__subtitulo">Enviaremos un correo para que se registre.</p>
+        </div>
+        <button type="button" class="pw-modal__cerrar" (click)="cerrarModalInvitacion()" aria-label="Cerrar">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <form class="pw-modal__form" [formGroup]="inviteForm" (ngSubmit)="invitar(); $event.preventDefault()">
+        <div class="pw-modal__campo">
+          <label class="pw-modal__label" for="colab-email">Correo Electrónico</label>
+          <div class="pw-modal__input-wrapper" [class.pw-modal__input-wrapper--error]="inviteForm.get('email')?.invalid && inviteForm.get('email')?.touched">
+            <input id="colab-email" type="email" formControlName="email" class="pw-modal__input" placeholder="ejemplo@correo.com" />
+          </div>
+          @if (inviteForm.get('email')?.hasError('required') && inviteForm.get('email')?.touched) {
+            <small class="pw-modal__error">El correo es obligatorio.</small>
+          }
+          @if (inviteForm.get('email')?.hasError('email') && inviteForm.get('email')?.touched) {
+            <small class="pw-modal__error">El correo no es válido.</small>
+          }
+        </div>
+
+        <div class="pw-modal__campo checkboxes-container">
+          <label class="pw-modal__label">Permitir acceso a los siguientes alumnos:</label>
+          <div formArrayName="studentIds" class="alumnos-list">
+            @for (alumno of alumnos(); track alumno.id; let i = $index) {
+              <label class="checkbox-label">
+                <input type="checkbox" [formControlName]="i" />
+                <span>{{ alumno.nombre }} {{ alumno.apellido }}</span>
+              </label>
+            }
+          </div>
+        </div>
+
+        <div class="pw-modal__acciones">
+          <button type="button" class="pw-modal__btn pw-modal__btn--cancelar" (click)="cerrarModalInvitacion()" [disabled]="enviando()">
+            Cancelar
+          </button>
+          <button type="submit" class="pw-modal__btn pw-modal__btn--confirmar" [disabled]="enviando() || inviteForm.invalid">
+            @if (enviando()) {
+              <span class="pw-modal__spinner" aria-hidden="true"></span>
+              Enviando...
+            } @else {
+              Enviar Invitación
+            }
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+}

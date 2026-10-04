@@ -52,6 +52,14 @@
       <span class="alumno-card__btn-label">Acreditar</span>
     </a>
 
+    <a class="alumno-card__btn alumno-card__btn--menta" (click)="navegar('/programar-recarga')"
+      [class.active]="isActive('/programar-recarga')" tabindex="0">
+      <span class="alumno-card__btn-icono" aria-hidden="true">
+        <i class="fa-solid fa-calendar-plus"></i>
+      </span>
+      <span class="alumno-card__btn-label">Programar</span>
+    </a>
+
     <a class="alumno-card__btn alumno-card__btn--azul" (click)="navegar('/restricciones-horarias')"
       [class.active]="isActive('/restricciones-horarias')">
     <span class="alumno-card__btn-icono" aria-hidden="true">

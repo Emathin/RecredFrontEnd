@@ -287,4 +287,6 @@ export class AlumnoCardComponent implements OnInit {
     return 0;
   }
 
+
+    programarRecarga() { this.navegar('/programar-recarga'); }
 }
