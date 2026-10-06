@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError, map, of } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { Buffet } from '../models/buffet.model';
@@ -44,9 +44,16 @@ interface MenuProductoDTO {
 export class BuffetService {
   private readonly http = inject(HttpClient);
 
-  obtenerBuffetDelAlumno(alumnoId: string): Observable<Buffet> {
+  obtenerBuffetDelAlumno(alumnoId: string): Observable<Buffet | null> {
     return this.http.get<Buffet>(
       `${environment.apiUrl}/alumnos/${alumnoId}/buffet`,
+    ).pipe(
+      catchError((error: unknown) => {
+        if (error instanceof HttpErrorResponse && error.status === 404) {
+          return of(null);
+        }
+        throw error;
+      })
     );
   }
 

@@ -57,7 +57,7 @@ export class FavoritosPage {
           favoritos: of(favoritos),
           buffet: this.buffetService.obtenerBuffetDelAlumno(this.alumnoId).pipe(
             switchMap(buffet => 
-              this.buffetService.getProductosDelBuffet(buffet.id, this.alumnoId)
+              buffet ? this.buffetService.getProductosDelBuffet(buffet.id, this.alumnoId) : of([] as Producto[])
             ),
             catchError(() => of([] as Producto[]))
           )

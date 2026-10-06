@@ -480,6 +480,12 @@ export class BuffetPresenter {
 
     this.buffetService.obtenerBuffetDelAlumno(alumnoId).subscribe({
       next: (buffet) => {
+        if (!buffet) {
+          console.error('Buffet not found for student');
+          this.toastService.mostrar('No se pudo cargar el buffet del alumno', 'error');
+          this.router.navigateByUrl(this.usuarioService.homeUrl());
+          return;
+        }
         this.buffetState.set(buffet);
 
         this.promotionService.getPromotions(buffet.id).subscribe({

@@ -412,6 +412,10 @@ export class CarritoPresenter {
 
     this.resolverBuffet(studentId).subscribe({
       next: (buffet) => {
+        if (!buffet) {
+          this.sugerenciasState.set([]);
+          return;
+        }
         this.cargandoSugerenciasState.set(true);
         this.sugerenciasCarritoService
           .obtenerSugerencias({
@@ -446,7 +450,7 @@ export class CarritoPresenter {
       return of(cacheado);
     }
     return this.buffetService.obtenerBuffetDelAlumno(alumnoId).pipe(
-      tap((buffet) => this.buffetCache.set(alumnoId, buffet)),
+      tap((buffet) => { if (buffet) this.buffetCache.set(alumnoId, buffet); }),
     );
   }
 
@@ -574,6 +578,7 @@ export class CarritoPresenter {
 
         try {
           const buffet = await firstValueFrom(this.resolverBuffet(alumnoId));
+          if (!buffet) return;
           const products = await firstValueFrom(
             this.buffetService.getProductosDelBuffet(buffet.id, alumnoId),
           );
