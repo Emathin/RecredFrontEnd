@@ -91,7 +91,6 @@ describe('Colaboradores', () => {
   });
 
   it('should delete collaborator', async () => {
-    spyOn(window, 'confirm').and.returnValue(true);
     mockColabService.eliminarColaborador.and.returnValue(Promise.resolve());
 
     await component.eliminarColaborador('test-id');
@@ -99,5 +98,25 @@ describe('Colaboradores', () => {
     expect(mockColabService.eliminarColaborador).toHaveBeenCalledWith('test-id');
     expect(mockToastService.mostrar).toHaveBeenCalledWith('Colaborador eliminado.', 'success');
     expect(mockColabService.listarColaboradores).toHaveBeenCalledTimes(2); // init + refresh
+  });
+
+  it('should open and close delete modal and confirm deletion', async () => {
+    const colab = {
+      id: 'c-1',
+      nombre: 'Carlos',
+      apellido: 'Gomez',
+      email: 'carlos@test.com',
+      activa: true
+    };
+    component.colaboradores.set([colab]);
+    mockColabService.eliminarColaborador.and.returnValue(Promise.resolve());
+
+    component.abrirModalEliminar(colab);
+    expect(component.colaboradorAEliminar()).toEqual(colab);
+
+    await component.confirmarEliminar();
+    expect(mockColabService.eliminarColaborador).toHaveBeenCalledWith('c-1');
+    expect(component.colaboradores().length).toBe(0);
+    expect(component.colaboradorAEliminar()).toBeNull();
   });
 });

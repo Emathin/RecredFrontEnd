@@ -152,6 +152,99 @@
       </button>
       }
 
+      <div class="navbar__theme-wrap">
+        <button
+          type="button"
+          class="navbar__theme-toggle"
+          (click)="toggleMenuTema()"
+          [attr.aria-expanded]="menuTemaAbierto()"
+          aria-haspopup="menu"
+          [attr.aria-label]="
+            modoTema() === 'auto'
+              ? 'Tema automático (' + (temaActivo() === 'dark' ? 'Modo noche activo' : 'Modo día activo') + ')'
+              : (modoTema() === 'dark' ? 'Tema oscuro activo' : 'Tema claro activo')
+          "
+          [title]="
+            modoTema() === 'auto'
+              ? 'Tema automático por horario (' + (temaActivo() === 'dark' ? 'Noche' : 'Día') + ')'
+              : (modoTema() === 'dark' ? 'Tema oscuro' : 'Tema claro')
+          "
+        >
+          @if (modoTema() === 'auto') {
+            <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+          } @else if (modoTema() === 'dark') {
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+          } @else {
+            <i class="fa-solid fa-sun" aria-hidden="true"></i>
+          }
+        </button>
+
+        @if (menuTemaAbierto()) {
+        <div class="navbar__menu navbar__menu--theme" role="menu" aria-label="Seleccionar apariencia">
+          <div class="navbar__theme-header">
+            <span class="navbar__theme-title">Apariencia</span>
+          </div>
+
+          <button
+            type="button"
+            class="navbar__menu-item navbar__theme-item"
+            [class.navbar__theme-item--active]="modoTema() === 'light'"
+            role="menuitem"
+            (click)="seleccionarModoTema('light')"
+          >
+            <div class="navbar__theme-item-content">
+              <i class="fa-solid fa-sun navbar__theme-icon navbar__theme-icon--sun" aria-hidden="true"></i>
+              <div class="navbar__theme-item-texts">
+                <span class="navbar__theme-name">Modo claro</span>
+              </div>
+            </div>
+            @if (modoTema() === 'light') {
+              <i class="fa-solid fa-check navbar__theme-check" aria-hidden="true"></i>
+            }
+          </button>
+
+          <button
+            type="button"
+            class="navbar__menu-item navbar__theme-item"
+            [class.navbar__theme-item--active]="modoTema() === 'dark'"
+            role="menuitem"
+            (click)="seleccionarModoTema('dark')"
+          >
+            <div class="navbar__theme-item-content">
+              <i class="fa-solid fa-moon navbar__theme-icon navbar__theme-icon--moon" aria-hidden="true"></i>
+              <div class="navbar__theme-item-texts">
+                <span class="navbar__theme-name">Modo oscuro</span>
+              </div>
+            </div>
+            @if (modoTema() === 'dark') {
+              <i class="fa-solid fa-check navbar__theme-check" aria-hidden="true"></i>
+            }
+          </button>
+
+          <button
+            type="button"
+            class="navbar__menu-item navbar__theme-item"
+            [class.navbar__theme-item--active]="modoTema() === 'auto'"
+            role="menuitem"
+            (click)="seleccionarModoTema('auto')"
+          >
+            <div class="navbar__theme-item-content">
+              <i class="fa-solid fa-clock navbar__theme-icon navbar__theme-icon--auto" aria-hidden="true"></i>
+              <div class="navbar__theme-item-texts">
+                <span class="navbar__theme-name">Automático por hora</span>
+                <small class="navbar__theme-desc">
+                  Oscuro 19:00 a 07:00 · {{ esNoche() ? 'Noche' : 'Día' }}
+                </small>
+              </div>
+            </div>
+            @if (modoTema() === 'auto') {
+              <i class="fa-solid fa-check navbar__theme-check" aria-hidden="true"></i>
+            }
+          </button>
+        </div>
+        }
+      </div>
+
       <div class="navbar__perfil-wrap">
         <button type="button" class="navbar__perfil" aria-label="Mi perfil" [attr.aria-expanded]="menuAbierto()"
           aria-haspopup="menu" (click)="toggleMenu()" title="Opciones de perfil y sesión">
@@ -203,6 +296,10 @@
             <span>Suscripción</span>
           </button>
           }
+          <button type="button" class="navbar__menu-item" role="menuitem" (click)="toggleMenuTema(); menuAbierto.set(false)">
+            <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+            <span>Tema: {{ modoTema() === 'auto' ? 'Automático' : (modoTema() === 'dark' ? 'Oscuro' : 'Claro') }}</span>
+          </button>
           <button type="button" class="navbar__menu-item" role="menuitem" (click)="cerrarSesion()">
             <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
             <span>Cerrar sesión</span>

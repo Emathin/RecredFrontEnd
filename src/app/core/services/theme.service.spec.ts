@@ -51,12 +51,13 @@ describe('ThemeService', () => {
       const service = whenInstancio();
       TestBed.tick();
 
-      expect(document.documentElement.getAttribute('data-theme')).toBe('light');
+      expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
       expect(localStorage.getItem('theme')).toBe(service.theme());
+      expect(localStorage.getItem('theme_mode')).toBe(service.mode());
     });
   });
 
-  describe('toggleTheme', () => {
+  describe('toggleTheme y setMode', () => {
     it('dado theme light, cuando hago toggle, deberia pasar a dark', () => {
       givenLocalStorageTheme('light');
       const service = whenInstancio();
@@ -74,10 +75,26 @@ describe('ThemeService', () => {
 
       thenElThemeEs(service, 'light');
     });
+
+    it('dado modo auto, deberia ser dark de noche y light de dia', () => {
+      const service = whenInstancio();
+      service.setMode('auto');
+
+      // Prueba noche (21:00)
+      const fechaNoche = new Date();
+      fechaNoche.setHours(21, 0, 0, 0);
+      expect(service.checkIsNight(fechaNoche)).toBeTrue();
+
+      // Prueba dia (14:00)
+      const fechaDia = new Date();
+      fechaDia.setHours(14, 0, 0, 0);
+      expect(service.checkIsNight(fechaDia)).toBeFalse();
+    });
   });
 
   function limpiarEstadoDeTheme(): void {
     localStorage.removeItem('theme');
+    localStorage.removeItem('theme_mode');
     document.documentElement.removeAttribute('data-theme');
   }
 

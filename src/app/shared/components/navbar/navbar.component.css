@@ -163,6 +163,7 @@
 
 .navbar__perfil-wrap,
 .navbar__notif-wrap,
+.navbar__theme-wrap,
 .navbar__kiosk-tools-wrap {
   position: relative;
   display: inline-flex;
@@ -247,6 +248,90 @@
 
 .navbar__menu-item:hover i {
   color: var(--color-melocoton);
+}
+
+.navbar__menu--theme {
+  min-width: 250px;
+  padding: 8px;
+}
+
+.navbar__theme-header {
+  padding: 6px 12px 8px 12px;
+  border-bottom: 1px solid var(--color-borde);
+  margin-bottom: 6px;
+}
+
+.navbar__theme-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-texto-claro);
+}
+
+.navbar__theme-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.navbar__theme-item--active {
+  background-color: rgba(74, 111, 165, 0.12);
+}
+
+[data-theme="dark"] .navbar__theme-item--active {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.navbar__theme-item-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.navbar__theme-icon {
+  font-size: 15px;
+  width: 18px;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.navbar__theme-icon--sun {
+  color: #f59e0b !important;
+}
+
+.navbar__theme-icon--moon {
+  color: #818cf8 !important;
+}
+
+.navbar__theme-icon--auto {
+  color: #10b981 !important;
+}
+
+.navbar__theme-item-texts {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__theme-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-texto-oscuro);
+}
+
+.navbar__theme-desc {
+  font-size: 11px;
+  color: var(--color-texto-claro);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.navbar__theme-check {
+  color: var(--color-menta, #81b29a) !important;
+  font-size: 14px;
 }
 
 .navbar__menu-item-chevron {
@@ -1104,6 +1189,7 @@
 
   .navbar .navbar__actions.navbar__actions--open > .navbar__perfil-wrap,
   .navbar .navbar__actions.navbar__actions--open > .navbar__notif-wrap,
+  .navbar .navbar__actions.navbar__actions--open > .navbar__theme-wrap,
   .navbar .navbar__actions.navbar__actions--open > button.navbar__cart {
     flex: 1;
     width: auto !important;
@@ -1115,7 +1201,8 @@
   }
 
   .navbar .navbar__actions.navbar__actions--open .navbar__notif,
-  .navbar .navbar__actions.navbar__actions--open .navbar__perfil {
+  .navbar .navbar__actions.navbar__actions--open .navbar__perfil,
+  .navbar .navbar__actions.navbar__actions--open .navbar__theme-toggle {
     width: 100% !important;
     height: 100% !important;
     border-radius: 12px !important;

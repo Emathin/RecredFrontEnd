@@ -22,10 +22,13 @@ interface NavbarProtegido {
   notifCount: () => number;
   menuAbierto: ReturnType<typeof signal<boolean>>;
   menuNotifAbierto: ReturnType<typeof signal<boolean>>;
+  menuTemaAbierto: ReturnType<typeof signal<boolean>>;
   menuKiosqueroAbierto: ReturnType<typeof signal<boolean>>;
   menuBilleteraAbierto: ReturnType<typeof signal<boolean>>;
   menuMobileAbierto: ReturnType<typeof signal<boolean>>;
   toggleTema: () => void;
+  toggleMenuTema: () => void;
+  seleccionarModoTema: (modo: 'light' | 'dark' | 'auto') => void;
   irAlCarrito: () => void;
   irAMovimientos: () => void;
   irAInicio: (event: Event) => void;
@@ -123,8 +126,10 @@ describe('NavbarComponent', () => {
         cantidad: notifCantidadSignal.asReadonly(),
       },
     );
-    servicioTheme = jasmine.createSpyObj<ThemeService>('ThemeService', ['toggleTheme'], {
+    servicioTheme = jasmine.createSpyObj<ThemeService>('ThemeService', ['toggleTheme', 'setMode'], {
       theme: temaSignal,
+      mode: signal<'light' | 'dark' | 'auto'>('light'),
+      isNight: signal(false),
     });
     servicioContexto = jasmine.createSpyObj<AlumnoContextoService>('AlumnoContextoService', [
       'setAlumnoId',
@@ -460,11 +465,30 @@ describe('NavbarComponent', () => {
     });
   });
 
-  describe('toggleTema', () => {
+  describe('toggleTema y menu tema', () => {
     it('dado el navbar, cuando llamo toggleTema, deberia delegar al ThemeService', () => {
       interno.toggleTema();
 
       expect(servicioTheme.toggleTheme).toHaveBeenCalled();
+    });
+
+    it('dado el navbar, cuando llamo toggleMenuTema, deberia alternar estado', () => {
+      expect(interno.menuTemaAbierto()).toBeFalse();
+
+      interno.toggleMenuTema();
+      expect(interno.menuTemaAbierto()).toBeTrue();
+
+      interno.toggleMenuTema();
+      expect(interno.menuTemaAbierto()).toBeFalse();
+    });
+
+    it('dado seleccionarModoTema, deberia llamar a ThemeService.setMode y cerrar menu', () => {
+      interno.menuTemaAbierto.set(true);
+
+      interno.seleccionarModoTema('auto');
+
+      expect(servicioTheme.setMode).toHaveBeenCalledWith('auto');
+      expect(interno.menuTemaAbierto()).toBeFalse();
     });
   });
 
@@ -513,6 +537,7 @@ describe('NavbarComponent', () => {
     it('dado los menus abiertos, cuando aprieto escape, deberia cerrar todos', () => {
       interno.menuAbierto.set(true);
       interno.menuNotifAbierto.set(true);
+      interno.menuTemaAbierto.set(true);
       interno.menuKiosqueroAbierto.set(true);
       interno.menuBilleteraAbierto.set(true);
 
@@ -520,6 +545,7 @@ describe('NavbarComponent', () => {
 
       expect(interno.menuAbierto()).toBeFalse();
       expect(interno.menuNotifAbierto()).toBeFalse();
+      expect(interno.menuTemaAbierto()).toBeFalse();
       expect(interno.menuKiosqueroAbierto()).toBeFalse();
       expect(interno.menuBilleteraAbierto()).toBeFalse();
     });

@@ -16,7 +16,7 @@ import { AlumnosService } from '../../../data-access/services/alumnos.service';
 import { PerfilService } from '../../../data-access/services/perfil.service';
 import { NotificacionesService, Notificacion } from '../../../data-access/services/notificaciones.service';
 import { UsuarioService } from '../../../data-access/services/usuario.service';
-import { ThemeService } from '../../../core/services/theme.service';
+import { ThemeService, ThemeMode } from '../../../core/services/theme.service';
 import { AlumnoContextoService } from '../../../core/services/alumno-contexto.service';
 import { ToastService } from '../../services/toast.service';
 import { CompraService } from '../../../features/compra/services/compra.service';
@@ -72,14 +72,32 @@ export class NavbarComponent implements OnInit {
   protected readonly alumnos = this.alumnosService.alumnos;
   protected readonly menuAbierto = signal(false);
   protected readonly menuNotifAbierto = signal(false);
+  protected readonly menuTemaAbierto = signal(false);
   protected readonly menuKiosqueroAbierto = signal(false);
   protected readonly menuBilleteraAbierto = signal(false);
   protected readonly menuMobileAbierto = signal(false);
   protected readonly temaActivo = this.themeService.theme;
+  protected readonly modoTema = this.themeService.mode;
+  protected readonly esNoche = this.themeService.isNight;
   protected readonly esColaborador = computed(() => this.perfilService.perfil()?.esColaborador ?? false);
 
   protected toggleTema(): void {
     this.themeService.toggleTheme();
+  }
+
+  protected toggleMenuTema(): void {
+    this.menuTemaAbierto.update((abierto) => !abierto);
+    if (this.menuTemaAbierto()) {
+      this.menuAbierto.set(false);
+      this.menuNotifAbierto.set(false);
+      this.menuKiosqueroAbierto.set(false);
+      this.menuBilleteraAbierto.set(false);
+    }
+  }
+
+  protected seleccionarModoTema(modo: ThemeMode): void {
+    this.themeService.setMode(modo);
+    this.menuTemaAbierto.set(false);
   }
 
   protected irAlCarrito(): void {
@@ -102,6 +120,7 @@ export class NavbarComponent implements OnInit {
   protected toggleMenu(): void {
     this.menuAbierto.update((abierto) => !abierto);
     if (this.menuAbierto()) {
+      this.menuTemaAbierto.set(false);
       this.menuNotifAbierto.set(false);
       this.menuKiosqueroAbierto.set(false);
     } else {
@@ -113,6 +132,7 @@ export class NavbarComponent implements OnInit {
     this.menuMobileAbierto.update((abierto) => !abierto);
     if (this.menuMobileAbierto()) {
       this.menuAbierto.set(false);
+      this.menuTemaAbierto.set(false);
       this.menuNotifAbierto.set(false);
       this.menuKiosqueroAbierto.set(false);
     }
@@ -129,6 +149,7 @@ export class NavbarComponent implements OnInit {
     this.menuNotifAbierto.update((abierto) => !abierto);
     if (this.menuNotifAbierto()) {
       this.menuAbierto.set(false);
+      this.menuTemaAbierto.set(false);
       this.menuKiosqueroAbierto.set(false);
       this.notificacionesService.obtenerNotificaciones();
     }
@@ -256,6 +277,7 @@ export class NavbarComponent implements OnInit {
     if (this.menuKiosqueroAbierto()) {
       this.menuAbierto.set(false);
       this.menuNotifAbierto.set(false);
+      this.menuTemaAbierto.set(false);
     }
   }
 
@@ -357,6 +379,7 @@ export class NavbarComponent implements OnInit {
     if (
       !this.menuAbierto() &&
       !this.menuNotifAbierto() &&
+      !this.menuTemaAbierto() &&
       !this.menuKiosqueroAbierto() &&
       !this.menuBilleteraAbierto() &&
       !this.menuMobileAbierto()
@@ -368,6 +391,7 @@ export class NavbarComponent implements OnInit {
     if (target && !this.host.nativeElement.contains(target)) {
       this.menuAbierto.set(false);
       this.menuNotifAbierto.set(false);
+      this.menuTemaAbierto.set(false);
       this.menuKiosqueroAbierto.set(false);
       this.menuBilleteraAbierto.set(false);
       this.menuMobileAbierto.set(false);
@@ -378,6 +402,7 @@ export class NavbarComponent implements OnInit {
   protected onEscape(): void {
     if (this.menuAbierto()) this.menuAbierto.set(false);
     if (this.menuNotifAbierto()) this.menuNotifAbierto.set(false);
+    if (this.menuTemaAbierto()) this.menuTemaAbierto.set(false);
     if (this.menuKiosqueroAbierto()) this.menuKiosqueroAbierto.set(false);
     if (this.menuBilleteraAbierto()) this.menuBilleteraAbierto.set(false);
     if (this.menuMobileAbierto()) this.menuMobileAbierto.set(false);

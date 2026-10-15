@@ -25,6 +25,8 @@ export class Colaboradores implements OnInit {
   
   mostrarModal = signal<boolean>(false);
   enviando = signal<boolean>(false);
+  colaboradorAEliminar = signal<TutorResponseDTO | null>(null);
+  eliminando = signal<boolean>(false);
 
   inviteForm: FormGroup;
 
@@ -46,7 +48,10 @@ export class Colaboradores implements OnInit {
         this.colaboradoresService.listarColaboradores(),
         this.alumnosService.asegurarCargados()
       ]);
-      this.colaboradores.set(colabs);
+      const uniqueColabs = Array.from(
+        new Map((colabs || []).filter(c => c.activa !== false).map(c => [c.id, c])).values()
+      );
+      this.colaboradores.set(uniqueColabs);
       this.alumnos.set(alums);
     } catch (error) {
       console.error(error);
@@ -113,15 +118,34 @@ export class Colaboradores implements OnInit {
     }
   }
 
-  async eliminarColaborador(id: string) {
-    if (!confirm('¿Estás seguro de que deseas eliminar a este colaborador? Perderá acceso a las cuentas de los alumnos asignados.')) {
-      return;
-    }
+  abrirModalEliminar(colaborador: TutorResponseDTO) {
+    this.colaboradorAEliminar.set(colaborador);
+  }
 
+  cerrarModalEliminar() {
+    if (this.eliminando()) return;
+    this.colaboradorAEliminar.set(null);
+  }
+
+  async confirmarEliminar() {
+    const colab = this.colaboradorAEliminar();
+    if (!colab) return;
+    await this.ejecutarEliminar(colab.id);
+    this.cerrarModalEliminar();
+  }
+
+  async eliminarColaborador(id: string) {
+    await this.ejecutarEliminar(id);
+  }
+
+  private async ejecutarEliminar(id: string) {
+    this.eliminando.set(true);
     try {
       await this.colaboradoresService.eliminarColaborador(id);
       this.toastService.mostrar('Colaborador eliminado.', 'success');
-      this.cargarDatos(); // Refresh list
+      // Optimistic update: remove from current list immediately
+      this.colaboradores.update(list => list.filter(c => c.id !== id));
+      await this.cargarDatos(); // Refresh list from backend
     } catch (error: any) {
       console.error(error);
       if (error?.status === 403) {
@@ -129,6 +153,8 @@ export class Colaboradores implements OnInit {
       } else {
         this.toastService.mostrar('Error al eliminar colaborador.', 'error');
       }
+    } finally {
+      this.eliminando.set(false);
     }
   }
 }

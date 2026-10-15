@@ -2,7 +2,7 @@
   min-height: calc(100vh - 64px);
   padding: 32px 0 60px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(240, 244, 248, 0) 260px),
+    var(--body-gradient),
     var(--color-fondo);
 }
 
@@ -63,6 +63,11 @@
   border-color: rgba(74, 111, 165, 0.28);
   padding: 22px 24px 36px;
   overflow: hidden;
+}
+
+:host-context([data-theme="dark"]) .perfil-usuario__header--alumno {
+  background: linear-gradient(180deg, rgba(74, 111, 165, 0.2) 0%, var(--color-superficie) 70%);
+  border-color: var(--color-borde);
 }
 
 .perfil-usuario__header--alumno .perfil-usuario__avatar-wrapper {

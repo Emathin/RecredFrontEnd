@@ -153,7 +153,7 @@ describe('BuffetService', () => {
   describe('obtenerBuffetDelAlumno', () => {
     it('dado un alumnoId, cuando pido su buffet, deberia hacer GET al endpoint correcto', (done) => {
       service.obtenerBuffetDelAlumno(ALUMNO_ID).subscribe((buffet) => {
-        expect(buffet.id).toBe('buffet-1');
+        expect(buffet?.id).toBe('buffet-1');
         done();
       });
 
