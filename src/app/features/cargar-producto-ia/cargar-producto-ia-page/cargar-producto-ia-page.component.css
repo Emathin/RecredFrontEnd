@@ -276,3 +276,77 @@
     font-size: 14px;
   }
 }
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .carga-producto,
+[data-theme="dark"] .carga-producto {
+  background: var(--color-fondo, #0F172A) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .carga-producto__volver,
+[data-theme="dark"] .carga-producto__volver {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+:host-context([data-theme="dark"]) .carga-producto__volver:hover,
+[data-theme="dark"] .carga-producto__volver:hover {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .carga-producto__eyebrow,
+[data-theme="dark"] .carga-producto__eyebrow {
+  color: var(--color-pizarra, #6C8EBF) !important;
+}
+
+:host-context([data-theme="dark"]) .carga-producto__titulo,
+[data-theme="dark"] .carga-producto__titulo {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .carga-producto__subtitulo,
+[data-theme="dark"] .carga-producto__subtitulo {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .carga-producto__estado,
+[data-theme="dark"] .carga-producto__estado {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .carga-producto__estado-icono,
+[data-theme="dark"] .carga-producto__estado-icono {
+  background-color: rgba(242, 183, 5, 0.15) !important;
+  color: var(--color-dorado, #F2B705) !important;
+}
+
+:host-context([data-theme="dark"]) .carga-producto__estado strong,
+[data-theme="dark"] .carga-producto__estado strong {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .carga-producto__estado span,
+[data-theme="dark"] .carga-producto__estado span {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .carga-producto__feedback,
+[data-theme="dark"] .carga-producto__feedback {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .carga-producto__feedback p,
+[data-theme="dark"] .carga-producto__feedback p {
+  color: #F8FAFC !important;
+}

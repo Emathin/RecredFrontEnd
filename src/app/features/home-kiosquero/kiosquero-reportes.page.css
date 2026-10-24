@@ -3268,47 +3268,56 @@ strong.kr__purchase-percent {
    Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
    ========================================================================== */
 
+:host-context([data-theme="dark"]) .kiosquero-reportes,
+[data-theme="dark"] .kiosquero-reportes {
+  background: var(--color-fondo, #0F172A) !important;
+}
+
 :host-context([data-theme="dark"]) .kr,
 [data-theme="dark"] .kr {
-  background: var(--color-fondo, #0F172A) !important;
+  background: transparent !important;
+}
+
+:host-context([data-theme="dark"]) .kr__back,
+[data-theme="dark"] .kr__back {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__back:hover,
+[data-theme="dark"] .kr__back:hover {
+  background-color: var(--color-superficie-alt, #334155) !important;
 }
 
 :host-context([data-theme="dark"]) .kr__hero,
 [data-theme="dark"] .kr__hero,
-:host-context([data-theme="dark"]) .kr__back,
-[data-theme="dark"] .kr__back,
-:host-context([data-theme="dark"]) .kr__card,
-[data-theme="dark"] .kr__card,
-:host-context([data-theme="dark"]) .kr__commerce-card,
-[data-theme="dark"] .kr__commerce-card,
-:host-context([data-theme="dark"]) .kr__ranking-card,
-[data-theme="dark"] .kr__ranking-card {
+:host-context([data-theme="dark"]) .kr__module,
+[data-theme="dark"] .kr__module,
+:host-context([data-theme="dark"]) .kr__category-panel,
+[data-theme="dark"] .kr__category-panel,
+:host-context([data-theme="dark"]) .kr__sales-slot-card,
+[data-theme="dark"] .kr__sales-slot-card,
+:host-context([data-theme="dark"]) .kr__purchase-card,
+[data-theme="dark"] .kr__purchase-card,
+:host-context([data-theme="dark"]) .kr__ranking-panel,
+[data-theme="dark"] .kr__ranking-panel,
+:host-context([data-theme="dark"]) .kr__trend-panel,
+[data-theme="dark"] .kr__trend-panel,
+:host-context([data-theme="dark"]) .kr__status-board,
+[data-theme="dark"] .kr__status-board {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__notice,
+[data-theme="dark"] .kr__notice {
   background-color: var(--color-superficie, #1E293B) !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
   color: #F8FAFC !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
-}
-
-:host-context([data-theme="dark"]) .kr__hero-title,
-[data-theme="dark"] .kr__hero-title,
-:host-context([data-theme="dark"]) .kr__card-title,
-[data-theme="dark"] .kr__card-title,
-:host-context([data-theme="dark"]) .kr__commerce-title,
-[data-theme="dark"] .kr__commerce-title,
-:host-context([data-theme="dark"]) .kr__ranking-title,
-[data-theme="dark"] .kr__ranking-title,
-:host-context([data-theme="dark"]) .kr__stat-value,
-[data-theme="dark"] .kr__stat-value {
-  color: #F8FAFC !important;
-}
-
-:host-context([data-theme="dark"]) .kr__hero-subtitle,
-[data-theme="dark"] .kr__hero-subtitle,
-:host-context([data-theme="dark"]) .kr__card-subtitle,
-[data-theme="dark"] .kr__card-subtitle,
-:host-context([data-theme="dark"]) .kr__stat-label,
-[data-theme="dark"] .kr__stat-label {
-  color: #94A3B8 !important;
 }
 
 :host-context([data-theme="dark"]) .kr__date-field input,
@@ -3318,4 +3327,441 @@ strong.kr__purchase-percent {
   background-color: var(--color-superficie-alt, #334155) !important;
   border-color: rgba(255, 255, 255, 0.12) !important;
   color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__date-field span,
+[data-theme="dark"] .kr__date-field span {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__hero-title,
+[data-theme="dark"] .kr__hero-title,
+:host-context([data-theme="dark"]) .kr__module-header h2,
+[data-theme="dark"] .kr__module-header h2,
+:host-context([data-theme="dark"]) .kr__ranking-header h2,
+[data-theme="dark"] .kr__ranking-header h2,
+:host-context([data-theme="dark"]) .kr__category-header h2,
+[data-theme="dark"] .kr__category-header h2,
+:host-context([data-theme="dark"]) .kr__section-heading h2,
+[data-theme="dark"] .kr__section-heading h2 {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__hero-subtitle,
+[data-theme="dark"] .kr__hero-subtitle,
+:host-context([data-theme="dark"]) .kr__module-header small,
+[data-theme="dark"] .kr__module-header small,
+:host-context([data-theme="dark"]) .kr__ranking-header p,
+[data-theme="dark"] .kr__ranking-header p,
+:host-context([data-theme="dark"]) .kr__category-header p,
+[data-theme="dark"] .kr__category-header p,
+:host-context([data-theme="dark"]) .kr__trend-header p,
+[data-theme="dark"] .kr__trend-header p {
+  color: #94A3B8 !important;
+}
+
+/* Category panel dark overrides */
+:host-context([data-theme="dark"]) .kr__category-kpi,
+[data-theme="dark"] .kr__category-kpi,
+:host-context([data-theme="dark"]) .kr__category-leader,
+[data-theme="dark"] .kr__category-leader {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__category-kpi small,
+[data-theme="dark"] .kr__category-kpi small,
+:host-context([data-theme="dark"]) .kr__category-leader small,
+[data-theme="dark"] .kr__category-leader small {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__category-kpi strong,
+[data-theme="dark"] .kr__category-kpi strong,
+:host-context([data-theme="dark"]) .kr__category-leader strong,
+[data-theme="dark"] .kr__category-leader strong {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__category-ring::after,
+[data-theme="dark"] .kr__category-ring::after {
+  background-color: var(--color-superficie, #1E293B) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__category-table,
+[data-theme="dark"] .kr__category-table {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__category-table-head,
+[data-theme="dark"] .kr__category-table-head {
+  background-color: rgba(0, 0, 0, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__category-table-head span,
+[data-theme="dark"] .kr__category-table-head span {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__category-row,
+[data-theme="dark"] .kr__category-row {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__category-name strong,
+[data-theme="dark"] .kr__category-name strong,
+:host-context([data-theme="dark"]) .kr__category-total,
+[data-theme="dark"] .kr__category-total {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__category-name small,
+[data-theme="dark"] .kr__category-name small {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__empty,
+[data-theme="dark"] .kr__empty,
+:host-context([data-theme="dark"]) .kr__empty--category,
+[data-theme="dark"] .kr__empty--category {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #94A3B8 !important;
+}
+
+/* Sales slot & Purchase card */
+:host-context([data-theme="dark"]) .kr__sales-total-card,
+[data-theme="dark"] .kr__sales-total-card {
+  background: linear-gradient(135deg, rgba(129, 178, 154, 0.15), var(--color-superficie-alt, #334155)) !important;
+  border-color: rgba(129, 178, 154, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__sales-total-card small,
+[data-theme="dark"] .kr__sales-total-card small {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__sales-total-card strong,
+[data-theme="dark"] .kr__sales-total-card strong {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__sales-slot-list,
+[data-theme="dark"] .kr__sales-slot-list {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__sales-slot-info strong,
+[data-theme="dark"] .kr__sales-slot-info strong,
+:host-context([data-theme="dark"]) .kr__sales-slot-amount,
+[data-theme="dark"] .kr__sales-slot-amount {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__sales-slot-info small,
+[data-theme="dark"] .kr__sales-slot-info small {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__purchase-item,
+[data-theme="dark"] .kr__purchase-item {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__purchase-item strong,
+[data-theme="dark"] .kr__purchase-item strong {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__purchase-item small,
+[data-theme="dark"] .kr__purchase-item small {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__purchase-percent,
+[data-theme="dark"] .kr__purchase-percent {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+/* Rankings */
+:host-context([data-theme="dark"]) .kr__ranking-badge,
+[data-theme="dark"] .kr__ranking-badge {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__rank-item,
+[data-theme="dark"] .kr__rank-item {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__rank-item--winner,
+[data-theme="dark"] .kr__rank-item--winner {
+  background: linear-gradient(90deg, rgba(242, 183, 5, 0.16), var(--color-superficie-alt, #334155)) !important;
+  border-color: rgba(242, 183, 5, 0.35) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__rank-media,
+[data-theme="dark"] .kr__rank-media {
+  background-color: var(--color-fondo, #0F172A) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__rank-number,
+[data-theme="dark"] .kr__rank-number {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__rank-info strong,
+[data-theme="dark"] .kr__rank-info strong,
+:host-context([data-theme="dark"]) .kr__rank-amount,
+[data-theme="dark"] .kr__rank-amount,
+:host-context([data-theme="dark"]) .kr__rank-reserved strong,
+[data-theme="dark"] .kr__rank-reserved strong {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__rank-info small,
+[data-theme="dark"] .kr__rank-info small {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__ranking-footer,
+[data-theme="dark"] .kr__ranking-footer {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Trend panel */
+:host-context([data-theme="dark"]) .kr__trend-summary,
+[data-theme="dark"] .kr__trend-summary {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__trend-summary-item,
+[data-theme="dark"] .kr__trend-summary-item {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__trend-summary-item small,
+[data-theme="dark"] .kr__trend-summary-item small,
+:host-context([data-theme="dark"]) .kr__trend-card-detail span,
+[data-theme="dark"] .kr__trend-card-detail span,
+:host-context([data-theme="dark"]) .kr__trend-axis span,
+[data-theme="dark"] .kr__trend-axis span,
+:host-context([data-theme="dark"]) .kr__trend-column > small,
+[data-theme="dark"] .kr__trend-column > small {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__trend-summary-item strong,
+[data-theme="dark"] .kr__trend-summary-item strong,
+:host-context([data-theme="dark"]) .kr__trend-card > strong,
+[data-theme="dark"] .kr__trend-card > strong,
+:host-context([data-theme="dark"]) .kr__trend-column > strong,
+[data-theme="dark"] .kr__trend-column > strong {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__trend-chart,
+[data-theme="dark"] .kr__trend-chart {
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 71px,
+      rgba(255, 255, 255, 0.04) 72px
+    ),
+    var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__trend-card,
+[data-theme="dark"] .kr__trend-card {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__trend-card--peak,
+[data-theme="dark"] .kr__trend-card--peak {
+  background: linear-gradient(180deg, rgba(129, 178, 154, 0.16), var(--color-superficie-alt, #334155)) !important;
+  border-color: rgba(129, 178, 154, 0.38) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__trend-card--selected,
+[data-theme="dark"] .kr__trend-card--selected {
+  border-color: var(--color-pizarra, #6C8EBF) !important;
+  background: linear-gradient(180deg, rgba(108, 142, 191, 0.18), var(--color-superficie-alt, #334155)) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__trend-breakdown,
+[data-theme="dark"] .kr__trend-breakdown {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__trend-breakdown-head strong,
+[data-theme="dark"] .kr__trend-breakdown-head strong,
+:host-context([data-theme="dark"]) .kr__trend-breakdown-head em,
+[data-theme="dark"] .kr__trend-breakdown-head em,
+:host-context([data-theme="dark"]) .kr__trend-breakdown-item strong,
+[data-theme="dark"] .kr__trend-breakdown-item strong {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__trend-breakdown-head small,
+[data-theme="dark"] .kr__trend-breakdown-head small,
+:host-context([data-theme="dark"]) .kr__trend-breakdown-item small,
+[data-theme="dark"] .kr__trend-breakdown-item small {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__trend-breakdown-item,
+[data-theme="dark"] .kr__trend-breakdown-item {
+  background-color: rgba(15, 23, 42, 0.45) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Status board */
+:host-context([data-theme="dark"]) .kr__status-item,
+[data-theme="dark"] .kr__status-item {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__status-item strong,
+[data-theme="dark"] .kr__status-item strong {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__status-item span,
+[data-theme="dark"] .kr__status-item span {
+  color: #94A3B8 !important;
+}
+
+/* Resumen comercial dark theme overrides */
+:host-context([data-theme="dark"]) .kr__summary-panel,
+[data-theme="dark"] .kr__summary-panel {
+  background:
+    radial-gradient(circle at 82% 8%, rgba(108, 142, 191, 0.12), transparent 35%),
+    linear-gradient(135deg, var(--color-superficie, #1E293B) 0%, #151F32 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__summary-panel::after,
+[data-theme="dark"] .kr__summary-panel::after {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__summary-panel .kr__section-heading > span,
+[data-theme="dark"] .kr__summary-panel .kr__section-heading > span {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--color-pizarra, #6C8EBF) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__summary-panel .kr__section-heading h2,
+[data-theme="dark"] .kr__summary-panel .kr__section-heading h2 {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__summary-panel .kr__section-heading small,
+[data-theme="dark"] .kr__summary-panel .kr__section-heading small {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__date-field--summary,
+[data-theme="dark"] .kr__date-field--summary {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__date-field--summary span,
+[data-theme="dark"] .kr__date-field--summary span {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__date-field--summary input,
+[data-theme="dark"] .kr__date-field--summary input,
+:host-context([data-theme="dark"]) .kr__date-field--summary select,
+[data-theme="dark"] .kr__date-field--summary select {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__date-field--summary select option,
+[data-theme="dark"] .kr__date-field--summary select option {
+  background-color: var(--color-superficie, #1E293B) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__refresh--summary,
+[data-theme="dark"] .kr__refresh--summary {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #F8FAFC !important;
+  box-shadow: none !important;
+}
+
+:host-context([data-theme="dark"]) .kr__refresh--summary:hover:not(:disabled),
+[data-theme="dark"] .kr__refresh--summary:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__summary,
+[data-theme="dark"] .kr__summary {
+  background-color: rgba(15, 23, 42, 0.55) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__summary .kr__metric + .kr__metric,
+[data-theme="dark"] .kr__summary .kr__metric + .kr__metric {
+  border-left-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__summary .kr__metric-icon,
+[data-theme="dark"] .kr__summary .kr__metric-icon {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  color: var(--color-pizarra, #6C8EBF) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__summary .kr__metric--success .kr__metric-icon,
+[data-theme="dark"] .kr__summary .kr__metric--success .kr__metric-icon {
+  background-color: rgba(129, 178, 154, 0.15) !important;
+  color: var(--color-menta, #81B29A) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__summary .kr__metric small,
+[data-theme="dark"] .kr__summary .kr__metric small {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__summary .kr__metric strong,
+[data-theme="dark"] .kr__summary .kr__metric strong {
+  color: #F8FAFC !important;
+}
+
+@media (max-width: 1080px) {
+  :host-context([data-theme="dark"]) .kr__summary .kr__metric:nth-child(n + 3),
+  [data-theme="dark"] .kr__summary .kr__metric:nth-child(n + 3) {
+    border-top-color: rgba(255, 255, 255, 0.08) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  :host-context([data-theme="dark"]) .kr__summary .kr__metric + .kr__metric,
+  [data-theme="dark"] .kr__summary .kr__metric + .kr__metric {
+    border-top-color: rgba(255, 255, 255, 0.08) !important;
+  }
 }

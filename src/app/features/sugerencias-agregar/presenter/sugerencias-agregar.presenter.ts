@@ -58,13 +58,13 @@ export class SugerenciasAgregarPresenter {
 
   get totalVentas(): number {
     return this._sugerencias.getValue().reduce(
-      (sum, s) => sum + s.metadata.totalSales, 0,
+      (sum, s) => sum + (s.metadata?.totalSales || 0), 0,
     );
   }
 
   get totalIngresos(): number {
     return this._sugerencias.getValue().reduce(
-      (sum, s) => sum + s.metadata.totalRevenue, 0,
+      (sum, s) => sum + (s.metadata?.totalRevenue || 0), 0,
     );
   }
 
@@ -74,7 +74,7 @@ export class SugerenciasAgregarPresenter {
 
   get totalClientes(): number {
     return this._sugerencias.getValue().reduce(
-      (sum, s) => sum + s.metadata.totalCustomers, 0,
+      (sum, s) => sum + (s.metadata?.totalCustomers || 0), 0,
     );
   }
 
@@ -83,42 +83,42 @@ export class SugerenciasAgregarPresenter {
     if (sugerencias.length === 0) return [];
 
     const sorted = [...sugerencias].sort(
-      (a, b) => b.metadata.totalRevenue - a.metadata.totalRevenue,
+      (a, b) => (b.metadata?.totalRevenue || 0) - (a.metadata?.totalRevenue || 0),
     );
-    const maxIngreso = sorted[0].metadata.totalRevenue || 1;
+    const maxIngreso = sorted[0]?.metadata?.totalRevenue || 1;
 
     return sorted.map((s) => ({
-      nombre: s.metadata.productName,
-      ventas: s.metadata.totalSales,
-      ingresos: s.metadata.totalRevenue,
-      clientes: s.metadata.totalCustomers,
-      precio: s.metadata.productPrice,
-      ingresoPercent: Math.round((s.metadata.totalRevenue / maxIngreso) * 100),
+      nombre: s.metadata?.productName || 'Producto',
+      ventas: s.metadata?.totalSales || 0,
+      ingresos: s.metadata?.totalRevenue || 0,
+      clientes: s.metadata?.totalCustomers || 0,
+      precio: s.metadata?.productPrice || 0,
+      ingresoPercent: maxIngreso > 0 ? Math.round(((s.metadata?.totalRevenue || 0) / maxIngreso) * 100) : 0,
     }));
   }
-
 
   get productCards(): ProductCard[] {
     const sugerencias = this._sugerencias.getValue();
     if (sugerencias.length === 0) return [];
 
-    const maxIngreso = Math.max(...sugerencias.map((s) => s.metadata.totalRevenue), 1);
+    const maxIngreso = Math.max(...sugerencias.map((s) => s.metadata?.totalRevenue || 0), 1);
 
     return [...sugerencias]
-      .sort((a, b) => b.metadata.totalRevenue - a.metadata.totalRevenue)
+      .sort((a, b) => (b.metadata?.totalRevenue || 0) - (a.metadata?.totalRevenue || 0))
       .map((s) => ({
         id: s.id,
-        nombre: s.metadata.productName,
-        precio: s.metadata.productPrice,
-        ventas: s.metadata.totalSales,
-        ingresos: s.metadata.totalRevenue,
-        clientes: s.metadata.totalCustomers,
-        mensaje: s.mensaje,
-        ingresoPercent: Math.round((s.metadata.totalRevenue / maxIngreso) * 100),
+        nombre: s.metadata?.productName || 'Producto',
+        precio: s.metadata?.productPrice || 0,
+        ventas: s.metadata?.totalSales || 0,
+        ingresos: s.metadata?.totalRevenue || 0,
+        clientes: s.metadata?.totalCustomers || 0,
+        mensaje: s.mensaje || '',
+        ingresoPercent: maxIngreso > 0 ? Math.round(((s.metadata?.totalRevenue || 0) / maxIngreso) * 100) : 0,
       }));
   }
 
-  formatCurrency(value: number): string {
-    return '$' + value.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  formatCurrency(value?: number | null): string {
+    const num = typeof value === 'number' && !isNaN(value) ? value : 0;
+    return '$' + num.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
   }
 }

@@ -896,29 +896,164 @@
    Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
    ========================================================================== */
 
-:host-context([data-theme="dark"]) .promociones,
-[data-theme="dark"] .promociones {
+:host-context([data-theme="dark"]) .promociones-page,
+[data-theme="dark"] .promociones-page {
   background: var(--color-fondo, #0F172A) !important;
 }
 
-:host-context([data-theme="dark"]) .promociones__volver,
-[data-theme="dark"] .promociones__volver {
+:host-context([data-theme="dark"]) .btn-volver,
+[data-theme="dark"] .btn-volver {
   background-color: var(--color-superficie, #1E293B) !important;
   color: #F8FAFC !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
 }
 
-:host-context([data-theme="dark"]) .promociones__card,
-[data-theme="dark"] .promociones__card,
-:host-context([data-theme="dark"]) .promociones__panel,
-[data-theme="dark"] .promociones__panel {
+:host-context([data-theme="dark"]) .btn-volver:hover,
+[data-theme="dark"] .btn-volver:hover {
+  background-color: var(--color-superficie-alt, #334155) !important;
+}
+
+:host-context([data-theme="dark"]) .page-header,
+[data-theme="dark"] .page-header {
+  background:
+    radial-gradient(circle at 82% 8%, rgba(108, 142, 191, 0.12), transparent 35%),
+    linear-gradient(135deg, var(--color-superficie, #1E293B) 0%, #151F32 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35) !important;
+}
+
+:host-context([data-theme="dark"]) .page-header::after,
+[data-theme="dark"] .page-header::after {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+:host-context([data-theme="dark"]) .header-main,
+[data-theme="dark"] .header-main {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .header-icon,
+[data-theme="dark"] .header-icon {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--color-pizarra, #6C8EBF) !important;
+}
+
+:host-context([data-theme="dark"]) .header-content h1,
+[data-theme="dark"] .header-content h1 {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .header-content p,
+[data-theme="dark"] .header-content p {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .tab-btn,
+[data-theme="dark"] .tab-btn {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .tab-btn.active,
+[data-theme="dark"] .tab-btn.active {
+  background-color: var(--color-superficie, #1E293B) !important;
+  color: #F8FAFC !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+:host-context([data-theme="dark"]) .filter-tabs,
+[data-theme="dark"] .filter-tabs {
+  background: rgba(0, 0, 0, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .sort-select,
+[data-theme="dark"] .sort-select {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .promotion-card,
+[data-theme="dark"] .promotion-card {
   background-color: var(--color-superficie, #1E293B) !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
   color: #F8FAFC !important;
 }
 
-:host-context([data-theme="dark"]) .promociones__titulo,
-[data-theme="dark"] .promociones__titulo {
+:host-context([data-theme="dark"]) .promo-title,
+[data-theme="dark"] .promo-title {
   color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .promo-validity,
+[data-theme="dark"] .promo-validity {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .promo-validity strong,
+[data-theme="dark"] .promo-validity strong,
+:host-context([data-theme="dark"]) .promo-products__name,
+[data-theme="dark"] .promo-products__name,
+:host-context([data-theme="dark"]) .promo-total__row--final,
+[data-theme="dark"] .promo-total__row--final {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .promo-products__header,
+[data-theme="dark"] .promo-products__header {
+  color: #8FB4E6 !important;
+}
+
+:host-context([data-theme="dark"]) .action-btn,
+[data-theme="dark"] .action-btn {
+  background: rgba(15, 23, 42, 0.8) !important;
+  color: #F8FAFC !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+:host-context([data-theme="dark"]) .modal-container,
+[data-theme="dark"] .modal-container,
+:host-context([data-theme="dark"]) .type-modal-container,
+[data-theme="dark"] .type-modal-container {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+}
+
+:host-context([data-theme="dark"]) .type-modal-header,
+[data-theme="dark"] .type-modal-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .type-header-content h2,
+[data-theme="dark"] .type-header-content h2,
+:host-context([data-theme="dark"]) .type-title-row h3,
+[data-theme="dark"] .type-title-row h3 {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .type-modal-body,
+[data-theme="dark"] .type-modal-body {
+  background-color: var(--color-superficie, #1E293B) !important;
+}
+
+:host-context([data-theme="dark"]) .type-option-btn,
+[data-theme="dark"] .type-option-btn {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .type-option-btn:hover,
+[data-theme="dark"] .type-option-btn:hover {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+:host-context([data-theme="dark"]) .type-icon-wrapper,
+[data-theme="dark"] .type-icon-wrapper {
+  background-color: rgba(0, 0, 0, 0.25) !important;
+  color: #8FB4E6 !important;
 }

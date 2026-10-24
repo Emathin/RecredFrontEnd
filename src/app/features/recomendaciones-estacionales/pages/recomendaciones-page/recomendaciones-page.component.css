@@ -375,24 +375,47 @@
    Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
    ========================================================================== */
 
-:host-context([data-theme="dark"]) .reco-page,
-[data-theme="dark"] .reco-page {
+:host-context([data-theme="dark"]) .seasonal-page,
+[data-theme="dark"] .seasonal-page {
   background: var(--color-fondo, #0F172A) !important;
 }
 
-:host-context([data-theme="dark"]) .reco-page__panel,
-[data-theme="dark"] .reco-page__panel,
-:host-context([data-theme="dark"]) .reco-card,
-[data-theme="dark"] .reco-card {
+:host-context([data-theme="dark"]) .seasonal-page__volver,
+[data-theme="dark"] .seasonal-page__volver {
+  background-color: var(--color-superficie, #1E293B) !important;
+  color: #F8FAFC !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+:host-context([data-theme="dark"]) .seasonal-page__volver:hover,
+[data-theme="dark"] .seasonal-page__volver:hover {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .seasonal-page__cabecera,
+[data-theme="dark"] .seasonal-page__cabecera,
+:host-context([data-theme="dark"]) .metric-card,
+[data-theme="dark"] .metric-card,
+:host-context([data-theme="dark"]) .seasonal-page__estado,
+[data-theme="dark"] .seasonal-page__estado {
   background-color: var(--color-superficie, #1E293B) !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
   color: #F8FAFC !important;
 }
 
-:host-context([data-theme="dark"]) .reco-page__titulo,
-[data-theme="dark"] .reco-page__titulo,
-:host-context([data-theme="dark"]) .reco-card__title,
-[data-theme="dark"] .reco-card__title {
+:host-context([data-theme="dark"]) .seasonal-page__titulo,
+[data-theme="dark"] .seasonal-page__titulo,
+:host-context([data-theme="dark"]) .metric-card__value,
+[data-theme="dark"] .metric-card__value {
   color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .seasonal-page__subtitulo,
+[data-theme="dark"] .seasonal-page__subtitulo,
+:host-context([data-theme="dark"]) .metric-card__label,
+[data-theme="dark"] .metric-card__label {
+  color: #94A3B8 !important;
 }

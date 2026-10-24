@@ -864,18 +864,115 @@
    Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
    ========================================================================== */
 
-:host-context([data-theme="dark"]) .ve-page,
-[data-theme="dark"] .ve-page {
+:host-context([data-theme="dark"]) .venta,
+[data-theme="dark"] .venta {
   background: var(--color-fondo, #0F172A) !important;
+  color: #F8FAFC !important;
 }
 
-:host-context([data-theme="dark"]) .ve-card,
-[data-theme="dark"] .ve-card,
-:host-context([data-theme="dark"]) .ve-panel,
-[data-theme="dark"] .ve-panel,
-:host-context([data-theme="dark"]) .ve-modal,
-[data-theme="dark"] .ve-modal {
+:host-context([data-theme="dark"]) .venta__titulo,
+[data-theme="dark"] .venta__titulo {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .venta__subtitulo,
+[data-theme="dark"] .venta__subtitulo {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .venta__volver,
+[data-theme="dark"] .venta__volver {
   background-color: var(--color-superficie, #1E293B) !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+:host-context([data-theme="dark"]) .venta__volver:hover,
+[data-theme="dark"] .venta__volver:hover {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .venta__toggle-dias,
+[data-theme="dark"] .venta__toggle-dias {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .venta__toggle-dias:hover,
+[data-theme="dark"] .venta__toggle-dias:hover {
+  background-color: var(--color-superficie-alt, #334155) !important;
+}
+
+:host-context([data-theme="dark"]) .venta__paso,
+[data-theme="dark"] .venta__paso,
+:host-context([data-theme="dark"]) .venta__bloqueo-dia,
+[data-theme="dark"] .venta__bloqueo-dia,
+:host-context([data-theme="dark"]) .venta__comprador,
+[data-theme="dark"] .venta__comprador,
+:host-context([data-theme="dark"]) .producto-card,
+[data-theme="dark"] .producto-card {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .venta__paso-titulo,
+[data-theme="dark"] .venta__paso-titulo,
+:host-context([data-theme="dark"]) .venta__bloqueo-titulo,
+[data-theme="dark"] .venta__bloqueo-titulo,
+:host-context([data-theme="dark"]) .producto-card__nombre,
+[data-theme="dark"] .producto-card__nombre,
+:host-context([data-theme="dark"]) .producto-card__precio,
+[data-theme="dark"] .producto-card__precio {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .venta__paso-numero,
+[data-theme="dark"] .venta__paso-numero {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .venta__input-group input,
+[data-theme="dark"] .venta__input-group input {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .venta__resultado-item,
+[data-theme="dark"] .venta__resultado-item {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .venta__resultado-item:hover,
+[data-theme="dark"] .venta__resultado-item:hover {
+  background-color: var(--color-superficie-alt, #334155) !important;
+}
+
+:host-context([data-theme="dark"]) .venta__resultado-nombre,
+[data-theme="dark"] .venta__resultado-nombre {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .venta__resultado-dni,
+[data-theme="dark"] .venta__resultado-dni {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .venta__footer,
+[data-theme="dark"] .venta__footer {
+  background: rgba(30, 41, 59, 0.92) !important;
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+:host-context([data-theme="dark"]) .venta__total-valor,
+[data-theme="dark"] .venta__total-valor {
   color: #F8FAFC !important;
 }

@@ -785,4 +785,90 @@
   box-shadow: var(--shadow-elevated);
 }
 
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .detail-container,
+[data-theme="dark"] .detail-container {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .back-btn,
+[data-theme="dark"] .back-btn {
+  background-color: var(--color-superficie, #1E293B) !important;
+  color: #F8FAFC !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+:host-context([data-theme="dark"]) .back-btn:hover,
+[data-theme="dark"] .back-btn:hover {
+  background-color: var(--color-superficie-alt, #334155) !important;
+}
+
+:host-context([data-theme="dark"]) .detail-title,
+[data-theme="dark"] .detail-title,
+:host-context([data-theme="dark"]) .profile-card__name,
+[data-theme="dark"] .profile-card__name,
+:host-context([data-theme="dark"]) .card-title,
+[data-theme="dark"] .card-title,
+:host-context([data-theme="dark"]) .modal-title,
+[data-theme="dark"] .modal-title {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .profile-card,
+[data-theme="dark"] .profile-card,
+:host-context([data-theme="dark"]) .price-lists-card,
+[data-theme="dark"] .price-lists-card,
+:host-context([data-theme="dark"]) .associated-products-card,
+[data-theme="dark"] .associated-products-card,
+:host-context([data-theme="dark"]) .modal-dialog,
+[data-theme="dark"] .modal-dialog {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .profile-card__avatar,
+[data-theme="dark"] .profile-card__avatar {
+  background-color: rgba(0, 0, 0, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #8FB4E6 !important;
+}
+
+:host-context([data-theme="dark"]) .profile-card__notes,
+[data-theme="dark"] .profile-card__notes {
+  background-color: rgba(0, 0, 0, 0.25) !important;
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .price-list-item,
+[data-theme="dark"] .price-list-item,
+:host-context([data-theme="dark"]) .product-item,
+[data-theme="dark"] .product-item {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .search-control,
+[data-theme="dark"] .search-control,
+:host-context([data-theme="dark"]) .form-control,
+[data-theme="dark"] .form-control {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .info-item label,
+[data-theme="dark"] .info-item label {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .info-item span,
+[data-theme="dark"] .info-item span {
+  color: #F8FAFC !important;
+}
+
 

@@ -51,6 +51,17 @@ import { UsuarioService } from '../../data-access/services/usuario.service';
       border-color: var(--color-borde-fuerte);
       color: var(--color-pizarra-dark);
     }
+    :host-context([data-theme="dark"]) .venta__volver,
+    [data-theme="dark"] .venta__volver {
+      background-color: var(--color-superficie, #1E293B) !important;
+      color: #F8FAFC !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+    }
+    :host-context([data-theme="dark"]) .venta__volver:hover,
+    [data-theme="dark"] .venta__volver:hover {
+      background-color: var(--color-superficie-alt, #334155) !important;
+    }
   `]
 })
 export class PremiumPlansPage {

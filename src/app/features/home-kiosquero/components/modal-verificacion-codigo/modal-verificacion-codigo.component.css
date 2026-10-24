@@ -442,3 +442,99 @@
 .mvc__success-desc strong {
   color: var(--color-texto-oscuro, #0f172a);
 }
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .mvc,
+[data-theme="dark"] .mvc {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .mvc__header,
+[data-theme="dark"] .mvc__header {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .mvc__titulo,
+[data-theme="dark"] .mvc__titulo,
+:host-context([data-theme="dark"]) .mvc__success-title,
+[data-theme="dark"] .mvc__success-title {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .mvc__subtitle,
+[data-theme="dark"] .mvc__subtitle,
+:host-context([data-theme="dark"]) .mvc__label,
+[data-theme="dark"] .mvc__label,
+:host-context([data-theme="dark"]) .mvc__list-header > span,
+[data-theme="dark"] .mvc__list-header > span,
+:host-context([data-theme="dark"]) .mvc__student-info small,
+[data-theme="dark"] .mvc__student-info small,
+:host-context([data-theme="dark"]) .mvc__item-price,
+[data-theme="dark"] .mvc__item-price,
+:host-context([data-theme="dark"]) .mvc__success-desc,
+[data-theme="dark"] .mvc__success-desc {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .mvc__input,
+[data-theme="dark"] .mvc__input {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .mvc__student-card,
+[data-theme="dark"] .mvc__student-card {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .mvc__student-info strong,
+[data-theme="dark"] .mvc__student-info strong {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .mvc__checklist-item,
+[data-theme="dark"] .mvc__checklist-item {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .mvc__item-name,
+[data-theme="dark"] .mvc__item-name {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .mvc__item-quantity,
+[data-theme="dark"] .mvc__item-quantity {
+  background-color: rgba(15, 23, 42, 0.5) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .mvc__btn--secondary,
+[data-theme="dark"] .mvc__btn--secondary {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .mvc__btn--secondary:hover:not(:disabled),
+[data-theme="dark"] .mvc__btn--secondary:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+:host-context([data-theme="dark"]) .mvc__close:hover:not(:disabled),
+[data-theme="dark"] .mvc__close:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .mvc__success-desc strong,
+[data-theme="dark"] .mvc__success-desc strong {
+  color: #F8FAFC !important;
+}

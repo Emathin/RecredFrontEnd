@@ -1317,3 +1317,34 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
   color: #F8FAFC !important;
 }
+
+/* Summary panel dark theme overrides */
+:host-context([data-theme="dark"]) .sg__summary-panel,
+[data-theme="dark"] .sg__summary-panel {
+  background:
+    radial-gradient(circle at 82% 8%, rgba(108, 142, 191, 0.12), transparent 35%),
+    linear-gradient(135deg, var(--color-superficie, #1E293B) 0%, #151F32 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35) !important;
+}
+
+:host-context([data-theme="dark"]) .sg__summary-panel::after,
+[data-theme="dark"] .sg__summary-panel::after {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+:host-context([data-theme="dark"]) .sg__summary-heading > span,
+[data-theme="dark"] .sg__summary-heading > span {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--color-pizarra, #6C8EBF) !important;
+}
+
+:host-context([data-theme="dark"]) .sg__summary-heading h1,
+[data-theme="dark"] .sg__summary-heading h1 {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .sg__summary-heading p,
+[data-theme="dark"] .sg__summary-heading p {
+  color: #94A3B8 !important;
+}

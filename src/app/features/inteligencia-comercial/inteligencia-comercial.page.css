@@ -522,17 +522,174 @@
    Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
    ========================================================================== */
 
-:host-context([data-theme="dark"]) .inteligencia,
-[data-theme="dark"] .inteligencia {
+:host-context([data-theme="dark"]) .inteligencia-comercial,
+[data-theme="dark"] .inteligencia-comercial {
   background: var(--color-fondo, #0F172A) !important;
+  color: #F8FAFC !important;
 }
 
-:host-context([data-theme="dark"]) .inteligencia__panel,
-[data-theme="dark"] .inteligencia__panel,
-:host-context([data-theme="dark"]) .inteligencia__card,
-[data-theme="dark"] .inteligencia__card {
+:host-context([data-theme="dark"]) .si__volver,
+[data-theme="dark"] .si__volver {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .si__volver:hover,
+[data-theme="dark"] .si__volver:hover {
+  background-color: var(--color-superficie-alt, #334155) !important;
+}
+
+:host-context([data-theme="dark"]) .si__metrica,
+[data-theme="dark"] .si__metrica {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .si__metrica strong,
+[data-theme="dark"] .si__metrica strong {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .si__metrica small,
+[data-theme="dark"] .si__metrica small {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .si__area-trabajo,
+[data-theme="dark"] .si__area-trabajo {
   background-color: var(--color-superficie, #1E293B) !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
   color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .si__diagnostico-header,
+[data-theme="dark"] .si__diagnostico-header {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .si__diagnostico-header h2,
+[data-theme="dark"] .si__diagnostico-header h2,
+:host-context([data-theme="dark"]) .si__encabezado-panel h2,
+[data-theme="dark"] .si__encabezado-panel h2 {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .si__diagnostico-header span,
+[data-theme="dark"] .si__diagnostico-header span,
+:host-context([data-theme="dark"]) .si__encabezado-panel p,
+[data-theme="dark"] .si__encabezado-panel p {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .si__diagnostico-contadores span,
+[data-theme="dark"] .si__diagnostico-contadores span {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .si__pestanias,
+[data-theme="dark"] .si__pestanias {
+  background-color: rgba(0, 0, 0, 0.25) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .si__pestania,
+[data-theme="dark"] .si__pestania {
+  color: #94A3B8 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .si__pestania strong,
+[data-theme="dark"] .si__pestania strong {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .si__pestania--activa,
+[data-theme="dark"] .si__pestania--activa {
+  background-color: var(--color-superficie, #1E293B) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .si__panel--separado,
+[data-theme="dark"] .si__panel--separado {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .si__tarjeta,
+[data-theme="dark"] .si__tarjeta {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .si__titulo-tarjeta strong,
+[data-theme="dark"] .si__titulo-tarjeta strong {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .si__tarjeta p,
+[data-theme="dark"] .si__tarjeta p,
+:host-context([data-theme="dark"]) .si__tarjeta small,
+[data-theme="dark"] .si__tarjeta small {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .si__estadisticas-tarjeta span,
+[data-theme="dark"] .si__estadisticas-tarjeta span {
+  background-color: rgba(15, 23, 42, 0.45) !important;
+}
+
+:host-context([data-theme="dark"]) .si__estadisticas-tarjeta strong,
+[data-theme="dark"] .si__estadisticas-tarjeta strong {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .si__boton-enlace,
+[data-theme="dark"] .si__boton-enlace {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .si__vacio,
+[data-theme="dark"] .si__vacio {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .si__vacio strong,
+[data-theme="dark"] .si__vacio strong {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .si__encabezado,
+[data-theme="dark"] .si__encabezado {
+  background:
+    radial-gradient(circle at 82% 8%, rgba(108, 142, 191, 0.12), transparent 35%),
+    linear-gradient(135deg, var(--color-superficie, #1E293B) 0%, #151F32 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35) !important;
+}
+
+:host-context([data-theme="dark"]) .si__icono-encabezado,
+[data-theme="dark"] .si__icono-encabezado {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--color-pizarra, #6C8EBF) !important;
+}
+
+:host-context([data-theme="dark"]) .si__encabezado h1,
+[data-theme="dark"] .si__encabezado h1 {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .si__encabezado p,
+[data-theme="dark"] .si__encabezado p {
+  color: #94A3B8 !important;
 }

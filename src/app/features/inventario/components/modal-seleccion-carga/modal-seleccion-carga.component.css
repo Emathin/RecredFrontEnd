@@ -235,3 +235,54 @@
     line-height: 1.25;
   }
 }
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .upload-selection-modal,
+[data-theme="dark"] .upload-selection-modal {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+}
+
+:host-context([data-theme="dark"]) .upload-selection-modal__header,
+[data-theme="dark"] .upload-selection-modal__header {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .upload-selection-modal__titulo,
+[data-theme="dark"] .upload-selection-modal__titulo {
+  color: #8FB4E6 !important;
+}
+
+:host-context([data-theme="dark"]) .upload-selection-modal__subtitle,
+[data-theme="dark"] .upload-selection-modal__subtitle,
+:host-context([data-theme="dark"]) .upload-selection-modal__option-desc,
+[data-theme="dark"] .upload-selection-modal__option-desc {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .upload-selection-modal__option,
+[data-theme="dark"] .upload-selection-modal__option {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .upload-selection-modal__option:hover,
+[data-theme="dark"] .upload-selection-modal__option:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+:host-context([data-theme="dark"]) .upload-selection-modal__option-title,
+[data-theme="dark"] .upload-selection-modal__option-title {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .upload-selection-modal__icon,
+[data-theme="dark"] .upload-selection-modal__icon {
+  background-color: rgba(0, 0, 0, 0.25) !important;
+  color: #8FB4E6 !important;
+}

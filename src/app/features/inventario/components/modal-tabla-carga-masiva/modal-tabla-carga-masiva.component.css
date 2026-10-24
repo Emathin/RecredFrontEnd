@@ -420,3 +420,71 @@
   transform: translateY(-1px);
   background-color: var(--color-pizarra-dark);
 }
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .bulk-upload-modal,
+[data-theme="dark"] .bulk-upload-modal {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .bulk-upload-modal__header,
+[data-theme="dark"] .bulk-upload-modal__header,
+:host-context([data-theme="dark"]) .bulk-upload-modal__footer,
+[data-theme="dark"] .bulk-upload-modal__footer {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .bulk-upload-modal__titulo,
+[data-theme="dark"] .bulk-upload-modal__titulo {
+  color: #8FB4E6 !important;
+}
+
+:host-context([data-theme="dark"]) .bulk-upload-modal__subtitle,
+[data-theme="dark"] .bulk-upload-modal__subtitle {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .bulk-upload-modal__table th,
+[data-theme="dark"] .bulk-upload-modal__table th {
+  background-color: #0F172A !important;
+  color: #8FB4E6 !important;
+  border-bottom-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+:host-context([data-theme="dark"]) .bulk-upload-modal__table th:nth-child(even),
+[data-theme="dark"] .bulk-upload-modal__table th:nth-child(even) {
+  background-color: #131E35 !important;
+}
+
+:host-context([data-theme="dark"]) .bulk-upload-modal__table td,
+[data-theme="dark"] .bulk-upload-modal__table td {
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+:host-context([data-theme="dark"]) .bulk-upload-modal__table td:nth-child(even),
+[data-theme="dark"] .bulk-upload-modal__table td:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+:host-context([data-theme="dark"]) .bulk-upload-modal__input,
+[data-theme="dark"] .bulk-upload-modal__input,
+:host-context([data-theme="dark"]) .bulk-upload-modal__select,
+[data-theme="dark"] .bulk-upload-modal__select {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .bulk-upload-modal__btn--cancel,
+[data-theme="dark"] .bulk-upload-modal__btn--cancel {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}

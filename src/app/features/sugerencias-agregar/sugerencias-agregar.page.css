@@ -723,3 +723,141 @@
   box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
   text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.2);
 }
+
+/* ==========================================================================
+   DARK MODE OVERRIDES
+   ========================================================================== */
+:host-context([data-theme="dark"]) .oportunidades,
+[data-theme="dark"] .oportunidades {
+  background: var(--color-fondo);
+}
+
+:host-context([data-theme="dark"]) .sa__back,
+[data-theme="dark"] .sa__back {
+  background-color: var(--color-superficie);
+  color: var(--color-texto-oscuro);
+  border-color: var(--color-borde);
+  box-shadow: none;
+}
+
+:host-context([data-theme="dark"]) .sa__module,
+[data-theme="dark"] .sa__module {
+  background-color: var(--color-superficie);
+  border-color: var(--color-borde);
+  box-shadow: none;
+}
+
+:host-context([data-theme="dark"]) .sa__module-header h2,
+[data-theme="dark"] .sa__module-header h2 {
+  color: var(--color-texto-oscuro);
+}
+
+:host-context([data-theme="dark"]) .sa__hbar-row,
+[data-theme="dark"] .sa__hbar-row {
+  background-color: var(--color-superficie-alt);
+  border-color: var(--color-borde);
+}
+
+:host-context([data-theme="dark"]) .sa__hbar-row--top,
+[data-theme="dark"] .sa__hbar-row--top {
+  background: linear-gradient(90deg, rgba(129, 178, 154, 0.18), var(--color-superficie-alt));
+  border-color: rgba(129, 178, 154, 0.4);
+}
+
+:host-context([data-theme="dark"]) .sa__hbar-rank,
+[data-theme="dark"] .sa__hbar-rank {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-texto-oscuro);
+}
+
+:host-context([data-theme="dark"]) .sa__hbar-row--top .sa__hbar-rank,
+[data-theme="dark"] .sa__hbar-row--top .sa__hbar-rank {
+  background-color: var(--color-menta);
+  color: #fff;
+}
+
+:host-context([data-theme="dark"]) .sa__hbar-label strong,
+[data-theme="dark"] .sa__hbar-label strong {
+  color: var(--color-texto-oscuro);
+}
+
+:host-context([data-theme="dark"]) .sa__hbar-label small,
+[data-theme="dark"] .sa__hbar-label small {
+  color: var(--color-texto-claro);
+}
+
+:host-context([data-theme="dark"]) .sa__product-card,
+[data-theme="dark"] .sa__product-card {
+  background-color: var(--color-superficie);
+  border-color: var(--color-borde);
+  box-shadow: none;
+}
+
+:host-context([data-theme="dark"]) .sa__card-title strong,
+[data-theme="dark"] .sa__card-title strong {
+  color: var(--color-texto-oscuro);
+}
+
+:host-context([data-theme="dark"]) .sa__card-message,
+[data-theme="dark"] .sa__card-message {
+  color: var(--color-texto-claro);
+}
+
+:host-context([data-theme="dark"]) .sa__card-stat,
+[data-theme="dark"] .sa__card-stat {
+  background-color: var(--color-superficie-alt);
+  border-color: var(--color-borde);
+}
+
+:host-context([data-theme="dark"]) .sa__card-stat strong,
+[data-theme="dark"] .sa__card-stat strong {
+  color: var(--color-texto-oscuro);
+}
+
+:host-context([data-theme="dark"]) .sa__card-stat small,
+[data-theme="dark"] .sa__card-stat small {
+  color: var(--color-texto-claro);
+}
+
+:host-context([data-theme="dark"]) .sa__empty-state,
+[data-theme="dark"] .sa__empty-state {
+  background-color: var(--color-superficie);
+  border-color: var(--color-borde);
+  box-shadow: none;
+}
+
+:host-context([data-theme="dark"]) .sa__empty-state h2,
+[data-theme="dark"] .sa__empty-state h2 {
+  color: var(--color-texto-oscuro);
+}
+
+/* Summary panel dark theme overrides */
+:host-context([data-theme="dark"]) .sa__summary-panel,
+[data-theme="dark"] .sa__summary-panel {
+  background:
+    radial-gradient(circle at 82% 8%, rgba(108, 142, 191, 0.12), transparent 35%),
+    linear-gradient(135deg, var(--color-superficie, #1E293B) 0%, #151F32 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35) !important;
+}
+
+:host-context([data-theme="dark"]) .sa__summary-panel::after,
+[data-theme="dark"] .sa__summary-panel::after {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+:host-context([data-theme="dark"]) .sa__summary-heading > span,
+[data-theme="dark"] .sa__summary-heading > span {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--color-pizarra, #6C8EBF) !important;
+}
+
+:host-context([data-theme="dark"]) .sa__summary-heading h1,
+[data-theme="dark"] .sa__summary-heading h1 {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .sa__summary-heading p,
+[data-theme="dark"] .sa__summary-heading p {
+  color: #94A3B8 !important;
+}

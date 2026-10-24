@@ -409,7 +409,7 @@
   gap: 12px;
   padding: 16px 18px;
   border-bottom: 1px solid rgba(74, 111, 165, 0.1);
-  background-color: #f8fbff;
+  background-color: var(--color-superficie);
 }
 
 .tp-order__time {
@@ -555,7 +555,7 @@
   justify-content: flex-end;
   padding: 13px 18px;
   border-top: 1px solid rgba(74, 111, 165, 0.1);
-  background-color: rgba(248, 251, 255, 0.72);
+  background-color: var(--color-superficie-alt);
 }
 
 .tp-details {
@@ -591,7 +591,7 @@
   padding: 34px 20px;
   border: 1px solid rgba(74, 111, 165, 0.12);
   border-radius: 20px;
-  background-color: #f8fbff;
+  background-color: var(--color-superficie-alt);
   color: var(--color-texto-claro);
   text-align: center;
 }
@@ -909,4 +909,103 @@
 :host-context([data-theme="dark"]) .tracking-pedido__header,
 [data-theme="dark"] .tracking-pedido__header {
   border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Estado de carga, error y vacío */
+:host-context([data-theme="dark"]) .tp-state,
+[data-theme="dark"] .tp-state {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .tp-state > i,
+[data-theme="dark"] .tp-state > i {
+  color: var(--color-pizarra, #6C8EBF) !important;
+}
+
+:host-context([data-theme="dark"]) .tp-state p,
+[data-theme="dark"] .tp-state p {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .tp-state--error,
+[data-theme="dark"] .tp-state--error {
+  background-color: rgba(231, 111, 81, 0.12) !important;
+  border-color: rgba(231, 111, 81, 0.28) !important;
+}
+
+:host-context([data-theme="dark"]) .tp-state--error > i,
+[data-theme="dark"] .tp-state--error > i {
+  color: var(--color-melocoton, #E76F51) !important;
+}
+
+:host-context([data-theme="dark"]) .tp-state .tp-button--ghost,
+[data-theme="dark"] .tp-state .tp-button--ghost {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .tp-state .tp-button--ghost:hover:not(:disabled),
+[data-theme="dark"] .tp-state .tp-button--ghost:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+}
+
+:host-context([data-theme="dark"]) .tp-order__footer,
+[data-theme="dark"] .tp-order__footer {
+  background-color: rgba(15, 23, 42, 0.35) !important;
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .tp-details,
+[data-theme="dark"] .tp-details {
+  color: var(--color-pizarra, #6C8EBF) !important;
+}
+
+:host-context([data-theme="dark"]) .tp-details:hover,
+[data-theme="dark"] .tp-details:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  color: #8FB4E6 !important;
+}
+
+:host-context([data-theme="dark"]) .tp-order__header,
+[data-theme="dark"] .tp-order__header {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .tp-order__time strong,
+[data-theme="dark"] .tp-order__time strong {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .tp-order__student h3,
+[data-theme="dark"] .tp-order__student h3 {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .tp-status--listo,
+[data-theme="dark"] .tp-status--listo {
+  background-color: rgba(129, 178, 154, 0.2) !important;
+  color: #81B29A !important;
+}
+
+:host-context([data-theme="dark"]) .tp-status--pendiente,
+:host-context([data-theme="dark"]) .tp-status--en_preparacion,
+[data-theme="dark"] .tp-status--pendiente,
+[data-theme="dark"] .tp-status--en_preparacion {
+  background-color: rgba(242, 183, 5, 0.2) !important;
+  color: var(--color-dorado, #F2B705) !important;
+}
+
+:host-context([data-theme="dark"]) .tp-status--vencido,
+:host-context([data-theme="dark"]) .tp-status--cancelado,
+:host-context([data-theme="dark"]) .tp-status--rechazado,
+[data-theme="dark"] .tp-status--vencido,
+[data-theme="dark"] .tp-status--cancelado,
+[data-theme="dark"] .tp-status--rechazado {
+  background-color: rgba(231, 111, 81, 0.2) !important;
+  color: var(--color-melocoton, #E76F51) !important;
 }

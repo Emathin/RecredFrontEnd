@@ -257,4 +257,29 @@ body:has(.buffet__footer-cart:not(.footer-hidden)) .asistente-fab {
   color: #F8FAFC !important;
 }
 
+[data-theme="dark"] .tp-state {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .tp-state p {
+  color: #F8FAFC !important;
+}
+
+[data-theme="dark"] .tp-order {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .tp-order__header {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .tp-order__footer {
+  background-color: rgba(15, 23, 42, 0.35) !important;
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
 
