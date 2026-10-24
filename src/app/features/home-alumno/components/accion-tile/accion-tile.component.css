@@ -270,3 +270,96 @@
     height: 36px;
   }
 }
+
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .accion-tile,
+[data-theme="dark"] .accion-tile {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+:host-context([data-theme="dark"]) .accion-tile:hover,
+[data-theme="dark"] .accion-tile:hover {
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4) !important;
+}
+
+:host-context([data-theme="dark"]) .accion-tile--menta,
+[data-theme="dark"] .accion-tile--menta {
+  background: linear-gradient(180deg, rgba(129, 178, 154, 0.12) 0%, #1E293B 70%) !important;
+  border-color: rgba(129, 178, 154, 0.28) !important;
+}
+
+:host-context([data-theme="dark"]) .accion-tile--mandarina,
+[data-theme="dark"] .accion-tile--mandarina {
+  background: linear-gradient(180deg, rgba(244, 162, 97, 0.12) 0%, #1E293B 70%) !important;
+  border-color: rgba(244, 162, 97, 0.28) !important;
+}
+
+:host-context([data-theme="dark"]) .accion-tile--melocoton,
+[data-theme="dark"] .accion-tile--melocoton {
+  background: linear-gradient(180deg, rgba(231, 111, 81, 0.12) 0%, #1E293B 70%) !important;
+  border-color: rgba(231, 111, 81, 0.28) !important;
+}
+
+:host-context([data-theme="dark"]) .accion-tile--pizarra,
+[data-theme="dark"] .accion-tile--pizarra {
+  background: linear-gradient(180deg, rgba(108, 142, 191, 0.14) 0%, #1E293B 70%) !important;
+  border-color: rgba(108, 142, 191, 0.28) !important;
+}
+
+:host-context([data-theme="dark"]) .accion-tile--dorado,
+[data-theme="dark"] .accion-tile--dorado {
+  background: linear-gradient(180deg, rgba(242, 183, 5, 0.14) 0%, #1E293B 70%) !important;
+  border-color: rgba(242, 183, 5, 0.28) !important;
+}
+
+:host-context([data-theme="dark"]) .accion-tile__label,
+[data-theme="dark"] .accion-tile__label {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .accion-tile__descripcion,
+[data-theme="dark"] .accion-tile__descripcion {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .accion-tile__flecha,
+[data-theme="dark"] .accion-tile__flecha {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .accion-tile--menta .accion-tile__flecha,
+[data-theme="dark"] .accion-tile--menta .accion-tile__flecha {
+  background-color: rgba(129, 178, 154, 0.2) !important;
+  color: #81B29A !important;
+}
+
+:host-context([data-theme="dark"]) .accion-tile--mandarina .accion-tile__flecha,
+[data-theme="dark"] .accion-tile--mandarina .accion-tile__flecha {
+  background-color: rgba(244, 162, 97, 0.2) !important;
+  color: #f4a261 !important;
+}
+
+:host-context([data-theme="dark"]) .accion-tile--melocoton .accion-tile__flecha,
+[data-theme="dark"] .accion-tile--melocoton .accion-tile__flecha {
+  background-color: rgba(231, 111, 81, 0.2) !important;
+  color: var(--color-melocoton) !important;
+}
+
+:host-context([data-theme="dark"]) .accion-tile__badge,
+[data-theme="dark"] .accion-tile__badge {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .accion-tile__ola,
+[data-theme="dark"] .accion-tile__ola {
+  opacity: 0.25 !important;
+}

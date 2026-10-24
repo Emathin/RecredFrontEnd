@@ -291,3 +291,28 @@
     gap: 12px;
   }
 }
+
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .favoritos,
+[data-theme="dark"] .favoritos {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(242, 183, 5, 0.08), transparent 28%),
+    radial-gradient(circle at 80% 25%, rgba(74, 111, 165, 0.12), transparent 35%),
+    linear-gradient(180deg, rgba(30, 41, 59, 0.65) 0%, rgba(15, 23, 42, 0) 240px),
+    var(--color-fondo, #0F172A) !important;
+}
+
+:host-context([data-theme="dark"]) .favoritos__titulo,
+[data-theme="dark"] .favoritos__titulo {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .favoritos-fav-card__quitar-btn,
+[data-theme="dark"] .favoritos-fav-card__quitar-btn {
+  background: rgba(30, 41, 59, 0.88) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}

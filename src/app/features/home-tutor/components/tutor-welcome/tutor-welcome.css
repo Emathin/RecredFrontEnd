@@ -457,3 +457,74 @@
     margin-top: -8px;
   }
 }
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .welcome__title,
+[data-theme="dark"] .welcome__title {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .welcome__subtitle,
+[data-theme="dark"] .welcome__subtitle {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .welcome__widget,
+[data-theme="dark"] .welcome__widget {
+  background: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .welcome__widget--alert,
+[data-theme="dark"] .welcome__widget--alert {
+  background: linear-gradient(135deg, rgba(242, 183, 5, 0.1), var(--color-superficie, #1E293B)) !important;
+  border-color: rgba(242, 183, 5, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .welcome__widget--ok,
+[data-theme="dark"] .welcome__widget--ok {
+  background: linear-gradient(135deg, rgba(129, 178, 154, 0.1), var(--color-superficie, #1E293B)) !important;
+  border-color: rgba(129, 178, 154, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .widget__header h3,
+[data-theme="dark"] .widget__header h3 {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .widget-alert__desc,
+[data-theme="dark"] .widget-alert__desc {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .widget-alert__item,
+[data-theme="dark"] .widget-alert__item {
+  background: rgba(15, 23, 42, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .widget-alert__name,
+[data-theme="dark"] .widget-alert__name {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .promo-mini-card,
+[data-theme="dark"] .promo-mini-card {
+  background: rgba(15, 23, 42, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .promo-mini-card__title,
+[data-theme="dark"] .promo-mini-card__title {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .promo-mini-card__icon,
+[data-theme="dark"] .promo-mini-card__icon {
+  background-color: rgba(129, 178, 154, 0.2) !important;
+  color: #81B29A !important;
+}

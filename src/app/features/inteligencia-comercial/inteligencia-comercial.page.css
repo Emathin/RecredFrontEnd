@@ -518,3 +518,21 @@
     border-bottom: 1px solid var(--color-borde);
   }
 }
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .inteligencia,
+[data-theme="dark"] .inteligencia {
+  background: var(--color-fondo, #0F172A) !important;
+}
+
+:host-context([data-theme="dark"]) .inteligencia__panel,
+[data-theme="dark"] .inteligencia__panel,
+:host-context([data-theme="dark"]) .inteligencia__card,
+[data-theme="dark"] .inteligencia__card {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  color: #F8FAFC !important;
+}

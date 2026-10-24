@@ -263,3 +263,24 @@
     font-size: 24px;
   }
 }
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .colegio-section__sidebar,
+[data-theme="dark"] .colegio-section__sidebar {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .colegio-section__nombre,
+[data-theme="dark"] .colegio-section__nombre {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .colegio-section__subtitulo,
+[data-theme="dark"] .colegio-section__subtitulo {
+  color: #94A3B8 !important;
+}

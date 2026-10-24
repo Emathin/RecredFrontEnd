@@ -517,3 +517,30 @@
   border-color: rgba(129, 178, 154, 0.3) !important;
 }
 
+
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .producto-card,
+[data-theme="dark"] .producto-card {
+  background: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .producto-card__nombre,
+[data-theme="dark"] .producto-card__nombre {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .producto-card__precio,
+[data-theme="dark"] .producto-card__precio {
+  color: var(--color-dorado) !important;
+}
+
+:host-context([data-theme="dark"]) .producto-card__info,
+[data-theme="dark"] .producto-card__info {
+  background: rgba(15, 23, 42, 0.5) !important;
+}

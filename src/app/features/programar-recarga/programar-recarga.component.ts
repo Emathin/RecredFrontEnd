@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -27,6 +27,22 @@ export class ProgramarRecargaComponent implements OnInit {
   readonly cargando = signal(false);
   readonly alumno = signal<Alumno | null>(null);
 
+  readonly modoCobro = signal<'hoy' | 'dia_mes'>('hoy');
+  readonly diaSeleccionado = signal<number>(5);
+  readonly diasRapidos = [1, 5, 10, 15, 20];
+  readonly hoy = new Date().getDate();
+
+  readonly descripcionProximoCobro = computed(() => {
+    if (this.modoCobro() === 'hoy') {
+      return `Primer débito hoy. Se repetirá cada día ${this.hoy} de cada mes.`;
+    }
+    const dia = this.diaSeleccionado();
+    const fecha = this.calcularFechaCobro(dia);
+    const opciones: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long' };
+    const fechaStr = fecha.toLocaleDateString('es-AR', opciones);
+    return `Primer débito el ${fechaStr}. Luego cada día ${dia} de cada mes.`;
+  });
+
   ngOnInit() {
     const alumnoId = this.contextoService.alumnoId() || localStorage.getItem('alumnoId');
     if (alumnoId) {
@@ -50,18 +66,70 @@ export class ProgramarRecargaComponent implements OnInit {
     if (input) input.value = monto.toString();
   }
 
+  selectModo(modo: 'hoy' | 'dia_mes') {
+    this.modoCobro.set(modo);
+  }
+
+  selectDia(dia: number) {
+    this.diaSeleccionado.set(dia);
+  }
+
+  onDiaCustomChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    let val = parseInt(input.value, 10);
+    if (isNaN(val)) return;
+    if (val < 1) val = 1;
+    if (val > 28) val = 28;
+    this.diaSeleccionado.set(val);
+  }
+
+  calcularFechaCobro(diaDelMes: number): Date {
+    const ahora = new Date();
+    const anio = ahora.getFullYear();
+    const mes = ahora.getMonth();
+    const hoy = ahora.getDate();
+
+    let fecha: Date;
+    if (diaDelMes > hoy) {
+      fecha = new Date(anio, mes, diaDelMes, 12, 0, 0);
+    } else {
+      fecha = new Date(anio, mes + 1, diaDelMes, 12, 0, 0);
+    }
+    return fecha;
+  }
+
   async onSubmit(event: Event) {
     event.preventDefault();
     const input = document.getElementById('monto') as HTMLInputElement;
     const montoStr = input ? input.value : '0';
     const monto = Number(montoStr);
-    if (!monto || monto < 1) return;
+    if (!monto || monto < 1) {
+      this.toastService.mostrar('Por favor ingresa un monto válido.', 'error');
+      return;
+    }
 
     this.cargando.set(true);
     const alumnoId = this.alumno()?.id;
 
     try {
-      const body = { studentId: alumnoId, amount: monto, frequency: 1, frequencyType: 'months' };
+      const body: {
+        studentId?: string;
+        amount: number;
+        frequency: number;
+        frequencyType: string;
+        startDate?: string;
+      } = {
+        studentId: alumnoId,
+        amount: monto,
+        frequency: 1,
+        frequencyType: 'months'
+      };
+
+      if (this.modoCobro() === 'dia_mes') {
+        const fecha = this.calcularFechaCobro(this.diaSeleccionado());
+        body.startDate = fecha.toISOString();
+      }
+
       const response = await firstValueFrom(
         this.http.post<any>(`${this.apiBase}/payments/schedule-topup`, body)
       );

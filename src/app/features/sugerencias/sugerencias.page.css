@@ -1298,3 +1298,22 @@
   box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
   text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.2);
 }
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .sugerencias,
+[data-theme="dark"] .sugerencias {
+  background: var(--color-fondo, #0F172A) !important;
+}
+
+:host-context([data-theme="dark"]) .sugerencias__card,
+[data-theme="dark"] .sugerencias__card,
+:host-context([data-theme="dark"]) .sugerencias__panel,
+[data-theme="dark"] .sugerencias__panel {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  color: #F8FAFC !important;
+}

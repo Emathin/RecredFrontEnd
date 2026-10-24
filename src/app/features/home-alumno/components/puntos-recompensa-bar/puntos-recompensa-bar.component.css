@@ -148,3 +148,60 @@
     transform: translateY(-4px);
   }
 }
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .recompensas-bar,
+[data-theme="dark"] .recompensas-bar {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .recompensas-bar:hover,
+[data-theme="dark"] .recompensas-bar:hover {
+  border-color: var(--color-dorado) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+:host-context([data-theme="dark"]) .recompensas-bar__points,
+[data-theme="dark"] .recompensas-bar__points {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .progress-container,
+[data-theme="dark"] .progress-container {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .recompensas-bar__footer,
+[data-theme="dark"] .recompensas-bar__footer {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .mensaje-motivacional,
+[data-theme="dark"] .mensaje-motivacional {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .badge-crack,
+[data-theme="dark"] .badge-crack {
+  background-color: rgba(242, 183, 5, 0.22) !important;
+  color: var(--color-dorado) !important;
+}
+
+:host-context([data-theme="dark"]) .badge-principiante,
+[data-theme="dark"] .badge-principiante {
+  background-color: rgba(129, 178, 154, 0.22) !important;
+  color: #81B29A !important;
+}
+
+:host-context([data-theme="dark"]) .badge-goat,
+[data-theme="dark"] .badge-goat {
+  background-color: rgba(124, 58, 237, 0.25) !important;
+  color: #a78bfa !important;
+}

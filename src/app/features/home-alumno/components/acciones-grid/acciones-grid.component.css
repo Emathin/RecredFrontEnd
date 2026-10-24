@@ -40,3 +40,13 @@
     gap: 22px;
   }
 }
+
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .acciones-grid__titulo,
+[data-theme="dark"] .acciones-grid__titulo {
+  color: #F8FAFC !important;
+}

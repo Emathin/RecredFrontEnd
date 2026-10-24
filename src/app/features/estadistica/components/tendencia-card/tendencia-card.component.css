@@ -1,5 +1,6 @@
 .tendencia-card {
-  background: white;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
   border-radius: var(--radius-lg);
   padding: var(--spacing-xl);
   box-shadow: var(--shadow-sm);

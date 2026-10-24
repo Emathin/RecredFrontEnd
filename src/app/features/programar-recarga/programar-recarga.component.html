@@ -55,6 +55,64 @@
             </div>
           </div>
 
+          <div class="acreditar-page__presets-section mt-4">
+            <h4 class="acreditar-page__presets-title">¿Cuándo querés que se recargue?</h4>
+            <div class="programar-recarga__modo-tabs">
+              <button
+                type="button"
+                class="programar-recarga__modo-tab"
+                [class.active]="modoCobro() === 'hoy'"
+                (click)="selectModo('hoy')"
+              >
+                <i class="fa-solid fa-bolt"></i>
+                <span>A partir de hoy</span>
+              </button>
+              <button
+                type="button"
+                class="programar-recarga__modo-tab"
+                [class.active]="modoCobro() === 'dia_mes'"
+                (click)="selectModo('dia_mes')"
+              >
+                <i class="fa-regular fa-calendar"></i>
+                <span>Elegir día del mes</span>
+              </button>
+            </div>
+
+            @if (modoCobro() === 'dia_mes') {
+              <div class="programar-recarga__dias-container">
+                <label class="programar-recarga__dias-label">Día de cobro mensual (1 al 28):</label>
+                <div class="programar-recarga__dias-grid">
+                  @for (dia of diasRapidos; track dia) {
+                    <button
+                      type="button"
+                      class="programar-recarga__dia-btn"
+                      [class.active]="diaSeleccionado() === dia"
+                      (click)="selectDia(dia)"
+                    >
+                      Día {{ dia }}
+                    </button>
+                  }
+                </div>
+                <div class="programar-recarga__dia-custom">
+                  <span>Otro día:</span>
+                  <input
+                    type="number"
+                    min="1"
+                    max="28"
+                    [value]="diaSeleccionado()"
+                    (input)="onDiaCustomChange($event)"
+                    class="programar-recarga__dia-input"
+                  />
+                </div>
+              </div>
+            }
+
+            <div class="programar-recarga__info-box">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>{{ descripcionProximoCobro() }}</span>
+            </div>
+          </div>
+
           <div class="acreditar-page__actions">
             <button type="submit" class="acreditar-page__btn acreditar-page__btn--primary"
               [disabled]="cargando()">

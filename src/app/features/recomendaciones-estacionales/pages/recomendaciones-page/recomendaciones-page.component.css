@@ -370,3 +370,29 @@
     font-size: 12px;
   }
 }
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .reco-page,
+[data-theme="dark"] .reco-page {
+  background: var(--color-fondo, #0F172A) !important;
+}
+
+:host-context([data-theme="dark"]) .reco-page__panel,
+[data-theme="dark"] .reco-page__panel,
+:host-context([data-theme="dark"]) .reco-card,
+[data-theme="dark"] .reco-card {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .reco-page__titulo,
+[data-theme="dark"] .reco-page__titulo,
+:host-context([data-theme="dark"]) .reco-card__title,
+[data-theme="dark"] .reco-card__title {
+  color: #F8FAFC !important;
+}

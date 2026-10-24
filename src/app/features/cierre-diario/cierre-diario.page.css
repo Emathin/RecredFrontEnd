@@ -5813,3 +5813,43 @@
 .daily-close-hero__secondary i {
   color: inherit !important;
 }
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .daily-close,
+[data-theme="dark"] .daily-close {
+  background: var(--color-fondo, #0F172A) !important;
+}
+
+:host-context([data-theme="dark"]) .daily-close__back,
+[data-theme="dark"] .daily-close__back {
+  background-color: var(--color-superficie, #1E293B) !important;
+  color: #F8FAFC !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .daily-close-card,
+[data-theme="dark"] .daily-close-card,
+:host-context([data-theme="dark"]) .daily-close-hero,
+[data-theme="dark"] .daily-close-hero,
+:host-context([data-theme="dark"]) .daily-close__section,
+[data-theme="dark"] .daily-close__section {
+  background: var(--color-superficie, #1E293B) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .daily-close-table th,
+[data-theme="dark"] .daily-close-table th {
+  background-color: rgba(15, 23, 42, 0.6) !important;
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .daily-close-table td,
+[data-theme="dark"] .daily-close-table td {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}

@@ -61,15 +61,6 @@
     </a>
     }
 
-    @if (!esColaborador) {
-    <a class="alumno-card__btn alumno-card__btn--azul" (click)="navegar('/restricciones-horarias')" (keyup.enter)="navegar('/restricciones-horarias')" tabindex="0"
-      [class.active]="isActive('/restricciones-horarias')">
-    <span class="alumno-card__btn-icono" aria-hidden="true">
-      <i class="fa-solid fa-clock"></i>
-    </span>
-    <span class="alumno-card__btn-label">Horarios</span>
-    </a>
-    }
 
     <a class="alumno-card__btn alumno-card__btn--gris" (click)="navegar('/tutor-movimientos')" (keyup.enter)="navegar('/tutor-movimientos')" tabindex="0"
       [class.active]="isActive('/tutor-movimientos')">
@@ -84,6 +75,14 @@
     <div class="alumno-card__extra-grid" role="group" aria-label="Más acciones de alumno">
 
       @if (!esColaborador) {
+      <a class="alumno-card__btn alumno-card__btn--azul" (click)="navegar('/restricciones-horarias')" (keyup.enter)="navegar('/restricciones-horarias')" tabindex="0"
+        [class.active]="isActive('/restricciones-horarias')">
+        <span class="alumno-card__btn-icono" aria-hidden="true">
+          <i class="fa-solid fa-clock"></i>
+        </span>
+        <span class="alumno-card__btn-label">Horarios</span>
+      </a>
+
       <a class="alumno-card__btn alumno-card__btn--melocoton" (click)="navegar('/restricciones-nutricionales')" (keyup.enter)="navegar('/restricciones-nutricionales')" tabindex="0"
         [class.active]="isActive('/restricciones-nutricionales')">
         <span class="alumno-card__btn-icono" aria-hidden="true">

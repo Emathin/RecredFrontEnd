@@ -69,7 +69,7 @@
     0 24px 60px rgba(0, 0, 0, 0.4),
     0 8px 20px rgba(0, 0, 0, 0.3);
 
-  --body-gradient: linear-gradient(180deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0) 260px);
+  --body-gradient: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(30, 41, 59, 0.25) 120px, rgba(15, 23, 42, 0) 300px);
 }
 
 * {
@@ -206,3 +206,55 @@ body:has(.buffet__footer-cart:not(.footer-hidden)) .asistente-fab {
     bottom: 120px !important;
   }
 }
+
+/* ==========================================================================
+   Global Dark Theme Safety Net
+   ========================================================================== */
+
+[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]):not([class*="navbar"]):not([class*="inventario"]):not([class*="search"]):not([class*="busqueda"]),
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background-color: var(--color-superficie-alt, #334155);
+  color: var(--color-texto-oscuro, #F8FAFC);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #64748B;
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .dialog,
+[data-theme="dark"] .inventario__panel,
+[data-theme="dark"] .product-card,
+[data-theme="dark"] .alumno-card,
+[data-theme="dark"] .colegio-section__sidebar,
+[data-theme="dark"] .tutor-header,
+[data-theme="dark"] .welcome__widget {
+  background-color: var(--color-superficie, #1E293B) !important;
+  color: var(--color-texto-oscuro, #F8FAFC) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .inventario__panel .inventario__stat {
+  background-color: rgba(15, 23, 42, 0.45) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .product-card__metric,
+[data-theme="dark"] .product-card__availability {
+  background-color: rgba(15, 23, 42, 0.55) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .product-card__name,
+[data-theme="dark"] .inventario__panel .inventario__titulo,
+[data-theme="dark"] .inventario__panel .inventario__stat-value,
+[data-theme="dark"] .product-card__availability-row strong,
+[data-theme="dark"] .product-card__metric dd {
+  color: #F8FAFC !important;
+}
+
+

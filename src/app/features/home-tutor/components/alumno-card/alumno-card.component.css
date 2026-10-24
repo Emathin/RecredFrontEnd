@@ -404,6 +404,10 @@
   gap: 10px;
 }
 
+.alumno-card__extra-grid > :last-child:nth-child(3n + 1) {
+  grid-column: 2;
+}
+
 .alumno-card__toggle-wrapper {
   display: flex;
   justify-content: center;
@@ -797,4 +801,86 @@
   opacity: 0.6;
   cursor: not-allowed !important;
   pointer-events: none;
+}
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .alumno-card,
+[data-theme="dark"] .alumno-card {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .alumno-card__nombre,
+[data-theme="dark"] .alumno-card__nombre {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .alumno-card__grado,
+[data-theme="dark"] .alumno-card__grado {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .alumno-card__avatar,
+[data-theme="dark"] .alumno-card__avatar {
+  box-shadow:
+    0 0 0 3px var(--color-superficie, #1E293B),
+    0 0 0 5px var(--color-dorado),
+    0 8px 16px rgba(0, 0, 0, 0.35) !important;
+}
+
+:host-context([data-theme="dark"]) .alumno-card__saldo,
+[data-theme="dark"] .alumno-card__saldo {
+  background-color: rgba(15, 23, 42, 0.65) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .alumno-card__saldo-valor,
+[data-theme="dark"] .alumno-card__saldo-valor {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .alumno-card__saldo-label,
+[data-theme="dark"] .alumno-card__saldo-label {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .alumno-card__btn,
+[data-theme="dark"] .alumno-card__btn {
+  background-color: rgba(15, 23, 42, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+:host-context([data-theme="dark"]) .alumno-card__btn:hover,
+[data-theme="dark"] .alumno-card__btn:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+:host-context([data-theme="dark"]) .alumno-card__btn-icono,
+[data-theme="dark"] .alumno-card__btn-icono {
+  background: rgba(242, 183, 5, 0.15) !important;
+  box-shadow: inset 0 0 0 1px rgba(242, 183, 5, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .alumno-card__btn-icono i,
+[data-theme="dark"] .alumno-card__btn-icono i {
+  color: var(--color-dorado, #F2B705) !important;
+}
+
+:host-context([data-theme="dark"]) .alumno-card__btn-label,
+[data-theme="dark"] .alumno-card__btn-label {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .alumno-card__budget,
+[data-theme="dark"] .alumno-card__budget {
+  background-color: rgba(15, 23, 42, 0.45) !important;
+  border-radius: 12px;
+  color: #F8FAFC !important;
 }

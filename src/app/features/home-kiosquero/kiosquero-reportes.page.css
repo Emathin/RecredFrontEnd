@@ -3262,3 +3262,60 @@ strong.kr__purchase-percent {
   box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
   text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.2);
 }
+
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .kr,
+[data-theme="dark"] .kr {
+  background: var(--color-fondo, #0F172A) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__hero,
+[data-theme="dark"] .kr__hero,
+:host-context([data-theme="dark"]) .kr__back,
+[data-theme="dark"] .kr__back,
+:host-context([data-theme="dark"]) .kr__card,
+[data-theme="dark"] .kr__card,
+:host-context([data-theme="dark"]) .kr__commerce-card,
+[data-theme="dark"] .kr__commerce-card,
+:host-context([data-theme="dark"]) .kr__ranking-card,
+[data-theme="dark"] .kr__ranking-card {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .kr__hero-title,
+[data-theme="dark"] .kr__hero-title,
+:host-context([data-theme="dark"]) .kr__card-title,
+[data-theme="dark"] .kr__card-title,
+:host-context([data-theme="dark"]) .kr__commerce-title,
+[data-theme="dark"] .kr__commerce-title,
+:host-context([data-theme="dark"]) .kr__ranking-title,
+[data-theme="dark"] .kr__ranking-title,
+:host-context([data-theme="dark"]) .kr__stat-value,
+[data-theme="dark"] .kr__stat-value {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .kr__hero-subtitle,
+[data-theme="dark"] .kr__hero-subtitle,
+:host-context([data-theme="dark"]) .kr__card-subtitle,
+[data-theme="dark"] .kr__card-subtitle,
+:host-context([data-theme="dark"]) .kr__stat-label,
+[data-theme="dark"] .kr__stat-label {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .kr__date-field input,
+[data-theme="dark"] .kr__date-field input,
+:host-context([data-theme="dark"]) .kr__date-field select,
+[data-theme="dark"] .kr__date-field select {
+  background-color: var(--color-superficie-alt, #334155) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #F8FAFC !important;
+}

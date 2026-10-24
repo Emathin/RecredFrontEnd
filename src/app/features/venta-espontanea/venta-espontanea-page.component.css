@@ -858,3 +858,24 @@
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(74, 111, 165, 0.3);
 }
+
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .ve-page,
+[data-theme="dark"] .ve-page {
+  background: var(--color-fondo, #0F172A) !important;
+}
+
+:host-context([data-theme="dark"]) .ve-card,
+[data-theme="dark"] .ve-card,
+:host-context([data-theme="dark"]) .ve-panel,
+[data-theme="dark"] .ve-panel,
+:host-context([data-theme="dark"]) .ve-modal,
+[data-theme="dark"] .ve-modal {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}

@@ -432,3 +432,132 @@
   background-color: rgba(129, 178, 154, 0.25);
   color: var(--color-menta);
 }
+
+/* Selector de fecha / día */
+.programar-recarga__modo-tabs {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.programar-recarga__modo-tab {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background-color: var(--color-superficie-alt);
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  color: var(--color-texto-claro);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.programar-recarga__modo-tab:hover {
+  border-color: var(--color-pizarra);
+  color: var(--color-texto-oscuro);
+}
+
+.programar-recarga__modo-tab.active {
+  background-color: color-mix(in srgb, var(--color-menta) 15%, var(--color-superficie));
+  border-color: var(--color-menta);
+  color: var(--color-menta);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-menta) 25%, transparent);
+}
+
+.programar-recarga__dias-container {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.programar-recarga__dias-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-texto-claro);
+}
+
+.programar-recarga__dias-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.programar-recarga__dia-btn {
+  padding: 8px 4px;
+  background-color: var(--color-superficie-alt);
+  border: 1px solid var(--color-borde);
+  border-radius: 10px;
+  color: var(--color-texto-oscuro);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+
+.programar-recarga__dia-btn:hover {
+  background-color: color-mix(in srgb, var(--color-menta) 10%, var(--color-superficie));
+  border-color: var(--color-menta);
+}
+
+.programar-recarga__dia-btn.active {
+  background-color: var(--color-menta);
+  border-color: var(--color-menta);
+  color: #ffffff;
+}
+
+.programar-recarga__dia-custom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-texto-claro);
+}
+
+.programar-recarga__dia-input {
+  width: 70px;
+  padding: 6px 10px;
+  background-color: var(--color-superficie-alt);
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  color: var(--color-texto-oscuro);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 14px;
+  text-align: center;
+  outline: none;
+}
+
+.programar-recarga__dia-input:focus {
+  border-color: var(--color-menta);
+}
+
+.programar-recarga__info-box {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background-color: color-mix(in srgb, var(--color-pizarra) 10%, var(--color-superficie));
+  border: 1px solid color-mix(in srgb, var(--color-pizarra) 25%, var(--color-borde));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-texto-oscuro);
+}
+
+.programar-recarga__info-box i {
+  color: var(--color-pizarra);
+  font-size: 14px;
+  flex-shrink: 0;
+}

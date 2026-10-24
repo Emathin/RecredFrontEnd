@@ -596,3 +596,132 @@
     right: auto;
   }
 }
+
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .perfil-header,
+[data-theme="dark"] .perfil-header {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35) !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header--fondo-nubes,
+[data-theme="dark"] .perfil-header--fondo-nubes {
+  background:
+    linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.92)),
+    #1E293B !important;
+  box-shadow:
+    var(--shadow-card),
+    inset 0 0 60px rgba(56, 189, 248, 0.12),
+    inset 0 0 20px rgba(56, 189, 248, 0.08) !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header--fondo-minecraft,
+[data-theme="dark"] .perfil-header--fondo-minecraft {
+  background:
+    linear-gradient(135deg, rgba(20, 40, 20, 0.95), rgba(30, 41, 59, 0.92)),
+    #1E293B !important;
+  box-shadow:
+    var(--shadow-card),
+    inset 0 0 60px rgba(74, 222, 128, 0.12) !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header--fondo-dragonballz,
+[data-theme="dark"] .perfil-header--fondo-dragonballz {
+  background:
+    linear-gradient(135deg, rgba(45, 25, 15, 0.95), rgba(30, 41, 59, 0.92)),
+    #1E293B !important;
+  box-shadow:
+    var(--shadow-card),
+    inset 0 0 60px rgba(251, 146, 60, 0.12) !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header--fondo-gato,
+[data-theme="dark"] .perfil-header--fondo-gato {
+  background:
+    linear-gradient(135deg, rgba(45, 20, 30, 0.95), rgba(30, 41, 59, 0.92)),
+    #1E293B !important;
+  box-shadow:
+    var(--shadow-card),
+    inset 0 0 60px rgba(244, 114, 182, 0.12) !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header--fondo-messi,
+[data-theme="dark"] .perfil-header--fondo-messi {
+  background:
+    linear-gradient(135deg, rgba(15, 30, 60, 0.95), rgba(30, 41, 59, 0.92)),
+    #1E293B !important;
+  box-shadow:
+    var(--shadow-card),
+    inset 0 0 60px rgba(96, 165, 250, 0.12) !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header__nombre,
+[data-theme="dark"] .perfil-header__nombre {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header__saludo,
+[data-theme="dark"] .perfil-header__saludo {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header__subtitulo,
+[data-theme="dark"] .perfil-header__subtitulo {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header__avatar,
+[data-theme="dark"] .perfil-header__avatar {
+  box-shadow:
+    0 0 0 4px #1E293B,
+    0 0 0 7px var(--color-dorado),
+    0 14px 28px rgba(0, 0, 0, 0.4) !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header__saldo,
+[data-theme="dark"] .perfil-header__saldo {
+  color: #1e293b !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header__saldo-valor,
+[data-theme="dark"] .perfil-header__saldo-valor {
+  color: #1e293b !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header__saldo-label,
+[data-theme="dark"] .perfil-header__saldo-label {
+  color: #1e293b !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header__editar,
+[data-theme="dark"] .perfil-header__editar {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #8FB4E6 !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header__editar:hover,
+[data-theme="dark"] .perfil-header__editar:hover {
+  background-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header__menu,
+[data-theme="dark"] .perfil-header__menu {
+  background-color: #1E293B !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header__opcion:hover,
+[data-theme="dark"] .perfil-header__opcion:hover {
+  background-color: var(--color-superficie-alt, #334155) !important;
+}
+
+:host-context([data-theme="dark"]) .perfil-header__opcion-label,
+[data-theme="dark"] .perfil-header__opcion-label {
+  color: #F8FAFC !important;
+}

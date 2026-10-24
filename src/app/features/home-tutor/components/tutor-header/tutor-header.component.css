@@ -273,3 +273,37 @@
 }
 
 
+
+/* ==========================================================================
+   Dark Theme Specific Overrides (:host-context([data-theme="dark"]))
+   ========================================================================== */
+
+:host-context([data-theme="dark"]) .tutor-header,
+[data-theme="dark"] .tutor-header {
+  background-color: var(--color-superficie, #1E293B) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+:host-context([data-theme="dark"]) .tutor-header__nombre,
+[data-theme="dark"] .tutor-header__nombre {
+  color: #F8FAFC !important;
+}
+
+:host-context([data-theme="dark"]) .tutor-header__saludo,
+[data-theme="dark"] .tutor-header__saludo {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .tutor-header__subtitulo,
+[data-theme="dark"] .tutor-header__subtitulo {
+  color: #94A3B8 !important;
+}
+
+:host-context([data-theme="dark"]) .tutor-header__avatar,
+[data-theme="dark"] .tutor-header__avatar {
+  box-shadow:
+    0 0 0 4px var(--color-superficie, #1E293B),
+    0 0 0 6px var(--color-dorado),
+    0 12px 24px rgba(0, 0, 0, 0.4) !important;
+}
